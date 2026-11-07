@@ -1,24 +1,206 @@
 @import "tailwindcss";
 
 :root {
+  /* Cores principais */
   --background: #f4f7fb;
   --foreground: #1e1e1e;
+
+  --primary: #0672d6;
+  --primary-hover: #055db3;
+  --primary-light: #b8d7ff;
+
+  --secondary: #ff8702;
+  --secondary-hover: #e87500;
+  --secondary-light: #ffe0ba;
+
+  /* Superfícies */
+  --surface: #ffffff;
+  --surface-secondary: #edf3fa;
+
+  /* Textos */
+  --text-primary: #1e1e1e;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+  --text-inverse: #ffffff;
+
+  /* Bordas */
+  --border: #dce5f0;
+  --border-focus: #0672d6;
+
+  /* Estados */
+  --success: #279b58;
+  --warning: #ffb703;
+  --error: #e5484d;
+  --info: #0672d6;
+
+  /* Elementos decorativos */
+  --decoration-blue: #b8d7ff;
+  --decoration-orange: #ff8702;
+
+  /* Tipografia */
+  --font-heading: var(--font-fredoka), sans-serif;
+  --font-body: var(--font-poppins), sans-serif;
+
+  /* Bordas arredondadas */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* Sombras */
+  --shadow-sm: 0 2px 8px rgba(6, 114, 214, 0.06);
+  --shadow-md: 0 4px 16px rgba(6, 114, 214, 0.1);
+  --shadow-lg: 0 8px 24px rgba(6, 114, 214, 0.12);
 }
 
+/* ========================================
+   TAILWIND CSS THEME
+======================================== */
+
 @theme inline {
+  /* Cores */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-poppins), sans-serif;
-  --font-heading: var(--font-fredoka), sans-serif;
+
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-light: var(--primary-light);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-hover: var(--secondary-hover);
+  --color-secondary-light: var(--secondary-light);
+
+  --color-surface: var(--surface);
+  --color-surface-secondary: var(--surface-secondary);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-text-inverse: var(--text-inverse);
+
+  --color-border: var(--border);
+
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --color-info: var(--info);
+
+  --color-decoration-blue: var(--decoration-blue);
+  --color-decoration-orange: var(--decoration-orange);
+
+  /* Fontes */
+  --font-sans: var(--font-poppins);
+  --font-heading: var(--font-fredoka);
+
+  /* Arredondamentos */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+}
+
+/* ========================================
+   RESET E CONFIGURAÇÕES GLOBAIS
+======================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-poppins), sans-serif;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-fredoka), sans-serif;
-  font-weight: 700;
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ========================================
+   TIPOGRAFIA
+======================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+p,
+span,
+label,
+input,
+textarea,
+button {
+  font-family: var(--font-body);
+}
+
+/* ========================================
+   SELEÇÃO E SCROLLBAR
+======================================== */
+
+::selection {
+  background: var(--primary-light);
+  color: var(--text-primary);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-light);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* ========================================
+   UTILITÁRIOS
+======================================== */
+
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.font-body {
+  font-family: var(--font-body);
 }
