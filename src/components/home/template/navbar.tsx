@@ -12,7 +12,7 @@ export default function HomeNavbar() {
 
   return (
     <header className="relative z-10 bg-surface">
-      <div className="mx-auto flex min-h-20 max-w-[1200px] flex-wrap items-center justify-between gap-3 px-6 py-3">
+      <div className="mx-auto flex min-h-20 w-[92%] max-w-[140rem] flex-wrap items-center justify-between gap-3 px-2 py-3 sm:px-4 lg:px-6">
       {/* Logo */}
       <Link href="/" aria-label="Ilumine Educa - início" className="shrink-0">
         <Image

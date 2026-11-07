@@ -1,3 +1,7 @@
+.hero {
+  --corner-size: clamp(180px, 18vw, 460px);
+}
+
 /* Contornos orgânicos ficam em CSS; layout e responsividade usam Tailwind. */
 .hero::before,
 .hero::after {
@@ -8,20 +12,20 @@
 }
 
 .hero::before {
-  top: -150px;
-  left: -110px;
-  width: 240px;
-  height: 240px;
+  top: calc(var(--corner-size) * -.62);
+  left: calc(var(--corner-size) * -.46);
+  width: var(--corner-size);
+  height: var(--corner-size);
   border-radius: 40% 50% 65% 40%;
   background: var(--decoration-blue);
   transform: rotate(-25deg);
 }
 
 .hero::after {
-  top: -150px;
-  right: -150px;
-  width: 250px;
-  height: 280px;
+  top: calc(var(--corner-size) * -.55);
+  right: calc(var(--corner-size) * -.55);
+  width: var(--corner-size);
+  height: calc(var(--corner-size) * 1.12);
   border-radius: 45% 40% 40% 55%;
   background: var(--decoration-orange);
   transform: rotate(24deg);
@@ -33,7 +37,7 @@
   bottom: -4px;
   left: 0;
   width: 42%;
-  height: 7px;
+  height: clamp(5px, .5vw, 12px);
   border-radius: 50%;
   background: var(--warning);
   transform: rotate(-2deg);
@@ -43,7 +47,7 @@
 .blueShape {
   position: absolute;
   z-index: -1;
-  inset: 8% 6% -20% -8%;
+  inset: 14% 4% 0 -4%;
   border-radius: 47% 53% 33% 65% / 54% 42% 58% 46%;
   background: linear-gradient(135deg, var(--surface-secondary), var(--decoration-blue));
   transform: rotate(-8deg);
