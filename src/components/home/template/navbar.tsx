@@ -11,14 +11,8 @@ export default function HomeNavbar() {
   ];
 
   return (
-    <header
-      className="
-      flex w-full items-center justify-between gap-5
-      bg-surface
-      px-5 py-3
-      lg:px-20 lg:py-8
-    "
-    >
+    <header className="relative z-10 bg-surface">
+      <div className="mx-auto flex min-h-20 max-w-[1200px] flex-wrap items-center justify-between gap-3 px-6 py-3">
       {/* Logo */}
       <Link href="/" aria-label="Ilumine Educa - início" className="shrink-0">
         <Image
@@ -26,8 +20,8 @@ export default function HomeNavbar() {
           alt="Ilumine"
           width={160}
           height={55}
-          priority
-          className="h-auto w-28 lg:w-40"
+          loading="eager"
+          className="h-auto w-28 sm:w-36 lg:w-44"
         />
       </Link>
 
@@ -37,13 +31,14 @@ export default function HomeNavbar() {
           className="
           flex items-center gap-6
           text-sm font-medium
-          xl:gap-9 xl:text-base
+          xl:gap-7
         "
         >
           {navLinks.map((item) => (
             <li key={item.href}>
               <Link
                 href={item.href}
+                aria-current={item.href === "#inicio" ? "page" : undefined}
                 className="
                   relative py-2
                   text-text-primary
@@ -55,7 +50,7 @@ export default function HomeNavbar() {
                   after:w-0 after:rounded-full
                   after:bg-primary
                   after:transition-all
-                  hover:after:w-full
+                  hover:after:w-full aria-[current=page]:after:w-full
                 "
               >
                 {item.label}
@@ -83,7 +78,7 @@ export default function HomeNavbar() {
             text-secondary
             transition-all duration-200
             hover:bg-secondary hover:text-white
-            lg:px-6
+            lg:px-5
           "
         >
           Entrar
@@ -100,11 +95,12 @@ export default function HomeNavbar() {
             transition-all duration-200
             hover:bg-secondary-hover
             hover:shadow-md
-            lg:px-6
+            lg:px-5
           "
         >
           Criar Conta
         </Link>
+      </div>
       </div>
     </header>
   );

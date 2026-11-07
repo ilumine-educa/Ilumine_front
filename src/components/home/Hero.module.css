@@ -1,4 +1,4 @@
-/* Apenas as formas orgânicas e os pseudo-elementos decorativos ficam em CSS. */
+/* Contornos orgânicos ficam em CSS; layout e responsividade usam Tailwind. */
 .hero::before,
 .hero::after {
   position: absolute;
@@ -8,51 +8,43 @@
 }
 
 .hero::before {
-  top: -160px;
-  left: -120px;
-  width: 300px;
-  height: 290px;
+  top: -150px;
+  left: -110px;
+  width: 240px;
+  height: 240px;
   border-radius: 40% 50% 65% 40%;
-  background: #d9eaff;
+  background: var(--decoration-blue);
   transform: rotate(-25deg);
 }
 
 .hero::after {
-  top: -155px;
-  right: -145px;
-  width: 300px;
-  height: 380px;
+  top: -150px;
+  right: -150px;
+  width: 250px;
+  height: 280px;
   border-radius: 45% 40% 40% 55%;
-  background: #ffb338;
+  background: var(--decoration-orange);
   transform: rotate(24deg);
 }
 
 .highlight::after {
   position: absolute;
   z-index: -1;
-  right: -3%;
-  bottom: 0;
-  left: -2%;
-  height: 12px;
+  bottom: -4px;
+  left: 0;
+  width: 42%;
+  height: 7px;
   border-radius: 50%;
-  background: #ffcf48;
-  transform: rotate(-3deg);
+  background: var(--warning);
+  transform: rotate(-2deg);
   content: "";
 }
 
 .blueShape {
   position: absolute;
   z-index: -1;
-  inset: 14% -3% 0 -5%;
+  inset: 8% 6% -20% -8%;
   border-radius: 47% 53% 33% 65% / 54% 42% 58% 46%;
-  background: linear-gradient(135deg, #e1f1ff, #b9dbff);
+  background: linear-gradient(135deg, var(--surface-secondary), var(--decoration-blue));
   transform: rotate(-8deg);
-}
-
-@media (max-width: 760px) {
-  .hero::after {
-    top: -150px;
-    right: -200px;
-    height: 310px;
-  }
 }
