@@ -15,9 +15,9 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Ilumine.Educa | Cada criança aprende de um jeito",
+  title: "Ilumine educa",
   description:
-    "Com a Ilumine.Educa, o aprendizado se torna mais acessível, divertido e personalizado.",
+    "o aprendizado se torna mais acessível, divertido e personalizado.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
