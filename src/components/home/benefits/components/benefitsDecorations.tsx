@@ -1,33 +1,6 @@
 export default function BenefitsDecorations() {
   return (
     <>
-      {/* Ondas superiores */}
-      <svg
-        className="
-          pointer-events-none absolute inset-x-0 top-[-2]
-          z-0 h-[clamp(3rem,7vw,10rem)]
-          w-full rotate-180 scale-x-[-1]
-        "
-        viewBox="0 0 1440 120"
-        preserveAspectRatio="none"
-        aria-hidden="true"
-      >
-        <path
-          d="M0 42C94 2 105 125 240 119H0Z"
-          fill="var(--primary)"
-        />
-
-        <path
-          d="M620 120c128-101 212-17 359-35 205-24 265-97 461-74v109Z"
-          fill="color-mix(in srgb, var(--decoration-blue) 55%, var(--surface))"
-        />
-
-        <path
-          d="M876 120c238 0 349-121 564-70v70Z"
-          fill="var(--decoration-blue)"
-        />
-      </svg>
-
       {/* Elementos decorativos de fundo */}
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
 

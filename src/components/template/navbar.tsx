@@ -9,11 +9,10 @@ export default function HomeNavbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navLinks = [
-    { label: "Início", href: "#inicio" },
-    { label: "Benefícios", href: "#beneficios" },
-    { label: "Planos", href: "#planos" },
-    { label: "Sobre", href: "#sobre" },
-    { label: "Contato", href: "#contato" },
+    { label: "Início", href: "/" },
+    { label: "Solução", href: "/#solucao" },
+    { label: "Quem somos", href: "/quem-somos/" },
+    { label: "Contato", href: "/contato/" },
   ];
 
   const closeMenu = () => setMenuOpen(false);
@@ -153,7 +152,7 @@ export default function HomeNavbar() {
           transition-all duration-300 ease-in-out
           ${
             menuOpen
-              ? "visible max-h-[500px] opacity-100"
+              ? "visible max-h-125 opacity-100"
               : "invisible max-h-0 opacity-0"
           }
         `}

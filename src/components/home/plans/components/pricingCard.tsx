@@ -68,7 +68,7 @@ export default function PricingCard({ plan, index }: PricingCardProps) {
           {plan.name}
         </h3>
 
-        <p className="mx-auto mt-2 max-w-[250px] text-sm leading-relaxed text-text-secondary">
+        <p className="mx-auto mt-2 max-w-62.5 text-sm leading-relaxed text-text-secondary">
           {plan.description}
         </p>
 

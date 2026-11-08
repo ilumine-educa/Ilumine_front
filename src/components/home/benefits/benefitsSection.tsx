@@ -1,8 +1,7 @@
 import { benefits } from "./benefits.data";
-
-import BenefitCard from "./components/benefitCard";
 import BenefitsDecorations from "./components/benefitsDecorations";
 import SectionHeader from "../../reusable/sectionHeader";
+import InfoCard from "../../reusable/infoCard";
 
 export default function BenefitsSection() {
   return (
@@ -23,11 +22,13 @@ export default function BenefitsSection() {
       {/* Conteúdo principal */}
       <div className="relative z-10 mx-auto max-w-7xl">
         {/* Cabeçalho */}
-        <SectionHeader
-          id="benefits"
-          title="Mais do que aprender,"
-          highlight="é evoluir no próprio ritmo."
-        />
+        <div className="mx-auto mb-14 max-w-3xl text-center sm:mb-16">
+          <SectionHeader
+            id="benefits"
+            title="Mais do que aprender,"
+            highlight="é evoluir no próprio ritmo."
+          />
+        </div>
 
         {/* Cards */}
         <div
@@ -37,9 +38,20 @@ export default function BenefitsSection() {
             lg:grid-cols-3 lg:gap-6
           "
         >
-          {benefits.map((benefit) => (
-            <BenefitCard key={benefit.title} benefit={benefit} />
-          ))}
+          {benefits.map((benefit) => {
+            const Icon = benefit.icon;
+
+            return (
+              <InfoCard
+                key={benefit.title}
+                variant="benefit"
+                icon={<Icon size={30} stroke={1.8} />}
+                title={benefit.title}
+                description={benefit.description}
+                color={benefit.color}
+              />
+            );
+          })}
         </div>
       </div>
     </section>

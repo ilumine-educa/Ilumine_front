@@ -26,11 +26,13 @@ export default function PlansSection() {
       {/* Conteúdo */}
       <div className="relative z-10 mx-auto max-w-7xl">
         {/* Cabeçalho */}
-        <SectionHeader
-          id="plans-heading"
-          title="Nossos planos"
-          highlight="para evoluir juntos."
-        />
+        <div className="mx-auto mb-14 max-w-3xl text-center sm:mb-16">
+          <SectionHeader
+            id="plans-heading"
+            title="Nossos planos"
+            highlight="para evoluir juntos."
+          />
+        </div>
 
         {/* Cards */}
         <div
