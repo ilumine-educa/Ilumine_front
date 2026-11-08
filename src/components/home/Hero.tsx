@@ -7,7 +7,7 @@ export default function Hero() {
   return (
     <section
       id="inicio"
-      className={`${styles.hero} relative isolate overflow-hidden bg-surface text-text-primary`}
+      className={`${styles.hero} relative isolate overflow-hidden text-text-primary`}
       aria-labelledby="hero-title"
     >
       <div className="mx-auto grid w-full h-dvh grid-cols-1 items-center px-2 pt-26 sm:px-4 md:grid-cols-[1.1fr_1fr] md:gap-4 md:py-[clamp(1rem,3vw,5rem)] lg:px-12">
@@ -48,7 +48,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="relative isolate mx-auto aspect-[1.05] w-full min-w-0 max-w-[32rem] md:max-w-none">
+        <div className="relative isolate mx-auto aspect-[1.05] w-full min-w-0 max-w-lg md:max-w-none">
           <div className={styles.blueShape} aria-hidden="true" />
           <Image
             src="/images/hero/crianca-tablet.png"
