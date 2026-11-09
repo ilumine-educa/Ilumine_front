@@ -1,7 +1,6 @@
-
 import { impacts } from "./impact.data";
 import SectionHeader from "../../reusable/sectionHeader";
-import InfoCard from "../../reusable/infoCard";
+import InfoCard from "../../reusable/card/infoCard";
 import ImpactDecoration from "./components/ImpactDecoration";
 
 export default function ImpactSection() {
@@ -15,7 +14,7 @@ export default function ImpactSection() {
         lg:px-12
       "
     >
-      <ImpactDecoration/>
+      <ImpactDecoration />
 
       <div className="mx-auto max-w-7xl">
         {/* Cabeçalho */}

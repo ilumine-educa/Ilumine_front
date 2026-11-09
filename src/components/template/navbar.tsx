@@ -89,7 +89,7 @@ export default function HomeNavbar() {
         "
         >
           <Link
-            href="/login"
+            href="/auth/login"
             className="
               inline-flex items-center justify-center
               whitespace-nowrap rounded-full
@@ -103,7 +103,7 @@ export default function HomeNavbar() {
           </Link>
 
           <Link
-            href="/cadastro"
+            href="/auth/cadastro"
             className="
               inline-flex items-center justify-center
               whitespace-nowrap rounded-full
@@ -186,7 +186,7 @@ export default function HomeNavbar() {
           "
           >
             <Link
-              href="/login"
+              href="/auth/login"
               onClick={closeMenu}
               className="
                 flex items-center justify-center
@@ -201,7 +201,7 @@ export default function HomeNavbar() {
             </Link>
 
             <Link
-              href="/cadastro"
+              href="/auth/cadastro"
               onClick={closeMenu}
               className="
                 flex items-center justify-center

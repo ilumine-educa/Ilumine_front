@@ -5,7 +5,7 @@ import EssenceSection from "./components/essenceSection";
 import PurposeSection from "./components/purposeSection";
 import ValuesSection from "./components/valuesSection";
 import JourneySection from "./components/journeySection";
-import CallToAction from "../reusable/callToAction";
+import CallToAction from "../reusable/cta/callToAction";
 
 export default function AboutUsPage() {
   return (

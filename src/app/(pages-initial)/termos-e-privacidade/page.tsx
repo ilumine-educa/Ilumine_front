@@ -11,9 +11,9 @@ import {
 } from "@tabler/icons-react";
 
 import SectionHeader from "@/src/components/reusable/sectionHeader";
-import PolicyCard from "@/src/components/reusable/policyCard";
+import PolicyCard from "@/src/components/reusable/card/policyCard";
 import SectionNavigation from "@/src/components/reusable/sectionNavigation";
-import CallToAction from "@/src/components/reusable/callToAction";
+import CallToAction from "@/src/components/reusable/cta/callToAction";
 
 const navigationItems = [
   { label: "Termos de Uso", href: "#termos" },
@@ -23,7 +23,7 @@ const navigationItems = [
   { label: "Seus direitos", href: "#direitos" },
 ];
 
-export default function TermsPrivacyPage() {
+export default function termosUsoPrivacidadePage() {
   return (
     <>
       <div className="mx-auto w-full max-w-7xl pb-16 pt-28 px-4 sm:px-6 lg:px-12 xl:px-20">

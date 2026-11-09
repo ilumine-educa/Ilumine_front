@@ -55,8 +55,8 @@ export default function PurposeSection() {
           {/* Valores */}
           <div
             className="
-            grid grid-cols-2 gap-4
-            sm:gap-5
+            grid grid-cols-1 gap-4
+            sm:gap-5 sm:grid-cols-2
           "
           >
             {[values[0], values[2], values[1], values[3]].map((value) => {

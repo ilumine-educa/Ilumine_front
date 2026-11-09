@@ -1,7 +1,7 @@
 import { benefits } from "./benefits.data";
 import BenefitsDecorations from "./components/benefitsDecorations";
 import SectionHeader from "../../reusable/sectionHeader";
-import InfoCard from "../../reusable/infoCard";
+import InfoCard from "../../reusable/card/infoCard";
 
 export default function BenefitsSection() {
   return (

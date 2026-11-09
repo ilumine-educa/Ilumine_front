@@ -4,9 +4,9 @@ import AboutHeroVisual from "@/src/components/quem-somos/components/aboutHeroVis
 import EssenceSection from "@/src/components/quem-somos/components/essenceSection";
 import PurposeSection from "@/src/components/quem-somos/components/purposeSection";
 import JourneySection from "@/src/components/quem-somos/components/journeySection";
-import CallToAction from "@/src/components/reusable/callToAction";
+import CallToAction from "@/src/components/reusable/cta/callToAction";
 
-export default function QuemSomos() {
+export default function quemSomosPage() {
   return (
     <>
       {/* HERO */}

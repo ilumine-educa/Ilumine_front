@@ -32,7 +32,7 @@ export default function Hero() {
           {/* Os destinos dos botões serão definidos na próxima etapa. */}
           <div className="mt-[clamp(1.25rem,2vw,3rem)] flex flex-wrap gap-[clamp(.75rem,1vw,1.5rem)]">
             <Link
-              href={"/cadastro"}
+              href={"/auth/cadastro"}
               className="inline-flex min-h-11 items-center justify-center gap-3 rounded-full bg-primary px-[clamp(1.25rem,1.6vw,2.5rem)] py-[clamp(.75rem,1vw,1.25rem)] text-[clamp(.875rem,1vw,1.375rem)] font-semibold text-text-inverse transition-colors hover:bg-primary-hover focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary motion-reduce:transition-none"
             >
               Comece agora

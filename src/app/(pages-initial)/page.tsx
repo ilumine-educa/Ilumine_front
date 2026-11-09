@@ -6,7 +6,7 @@ import PlansSection from "../../components/home/plans/plansSection";
 import SolutionSection from "../../components/home/soluction/soluctionSection";
 import { IconArrowNarrowRight, IconPlayerPlay } from "@tabler/icons-react";
 import Hero from "../../components/reusable/hero";
-export default function Home() {
+export default function homePage() {
   return (
     <>
       <Hero

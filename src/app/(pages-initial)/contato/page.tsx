@@ -5,9 +5,9 @@ import SectionHeader from "@/src/components/reusable/sectionHeader";
 import ContactDecorations from "@/src/components/contato/components/contactDecorations";
 import ContactOptions from "@/src/components/contato/components/contactOptions";
 import ContactEmail from "@/src/components/contato/components/contactEmail";
-import CallToAction from "@/src/components/reusable/callToAction";
+import CallToAction from "@/src/components/reusable/cta/callToAction";
 
-export default function Contato() {
+export default function contatoPage() {
   return (
     <section
       id="contato"
