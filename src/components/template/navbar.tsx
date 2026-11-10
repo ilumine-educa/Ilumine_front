@@ -40,6 +40,7 @@ export default function HomeNavbar() {
     { label: "Início", href: "/" },
     { label: "Solução", href: "/#solucao" },
     { label: "Quem somos", href: "/quem-somos/" },
+    { label: "Nossa Equipe", href: "/equipe/" },
     { label: "Contato", href: "/contato/" },
   ];
 
@@ -68,7 +69,7 @@ export default function HomeNavbar() {
         mx-auto flex w-full min-h-20
         items-center justify-between gap-3
         px-4 py-3 sm:px-6
-        lg:px-12 xl:px-20
+        lg:px-8 2xl:px-20
       "
       >
         {/* Logo */}
@@ -89,11 +90,11 @@ export default function HomeNavbar() {
         </Link>
 
         {/* Navegação Desktop */}
-        <nav aria-label="Navegação principal" className="hidden lg:block">
+        <nav aria-label="Navegação principal" className="hidden xl:block">
           <ul
             className="
-            flex items-center gap-6
-            font-medium xl:gap-7
+            flex items-center gap-5 whitespace-nowrap
+            font-medium 2xl:gap-7
           "
           >
             {navLinks.map((item) => (
@@ -124,7 +125,7 @@ export default function HomeNavbar() {
         <div
           className="
           hidden shrink-0 items-center gap-2
-          text-sm font-semibold lg:flex
+          text-sm font-semibold xl:flex
         "
         >
           <Link
@@ -170,7 +171,7 @@ export default function HomeNavbar() {
             text-primary
             transition-colors
             hover:bg-primary-light
-            lg:hidden
+            xl:hidden
           "
         >
           {menuOpen ? (
@@ -187,7 +188,7 @@ export default function HomeNavbar() {
         className={`
           absolute left-0 top-full w-full
           overflow-hidden bg-surface
-          shadow-md lg:hidden
+          shadow-md xl:hidden
           transition-all duration-300 ease-in-out
           ${
             menuOpen
