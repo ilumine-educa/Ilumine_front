@@ -7,9 +7,11 @@ import {
 import type { PricingPlan } from "./plans.type";
 
 export const plans: PricingPlan[] = [
+  // Totais anuais: 12 mensalidades com 20% de desconto (mensal × 12 × 0,8).
   {
     name: "Gratuito",
     price: "0",
+    annualPrice: "0",
     description: "Comece a explorar novas formas de aprender.",
     features: [
       "Acesso limitado a atividades educativas.",
@@ -23,6 +25,7 @@ export const plans: PricingPlan[] = [
   {
     name: "Premium",
     price: "29,90",
+    annualPrice: "287,04",
     period: "/mês",
     description: "Uma experiência completa para evoluir no próprio ritmo.",
     features: [
@@ -38,6 +41,7 @@ export const plans: PricingPlan[] = [
   {
     name: "Escolas e Clínicas",
     price: "199",
+    annualPrice: "1.910,40",
     period: "/mês",
     description: "Mais possibilidades para acompanhar várias jornadas.",
     features: [

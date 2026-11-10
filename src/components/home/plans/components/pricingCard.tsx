@@ -1,14 +1,16 @@
 import { IconCheck, IconLock, IconSparkles } from "@tabler/icons-react";
 
-import type { PricingPlan } from "../plans.type";
+import type { BillingPeriod, PricingPlan } from "../plans.type";
 
 type PricingCardProps = {
   plan: PricingPlan;
   index: number;
+  billingPeriod?: BillingPeriod;
 };
 
-export default function PricingCard({ plan, index }: PricingCardProps) {
-  const Icon = plan.icon;
+export default function PricingCard({ plan, index, billingPeriod = "monthly" }: PricingCardProps) {
+  const price = billingPeriod === "annual" ? plan.annualPrice : plan.price;
+  const period = plan.period && (billingPeriod === "annual" ? "/ano" : plan.period);
 
   return (
     <article
@@ -17,6 +19,7 @@ export default function PricingCard({ plan, index }: PricingCardProps) {
       data-home-delay={index}
       className={`
         group relative flex h-full min-w-0 flex-col
+        lg:min-h-[520px]
         rounded-3xl border p-6
         transition-all duration-300
         hover:-translate-y-2 hover:shadow-xl
@@ -47,22 +50,7 @@ export default function PricingCard({ plan, index }: PricingCardProps) {
       )}
 
       {/* Cabeçalho */}
-      <div className="text-center">
-        <div
-          className={`
-            mx-auto mb-5 flex h-14 w-14
-            items-center justify-center
-            rounded-2xl transition-transform duration-300
-            group-hover:scale-110
-            ${
-              plan.featured
-                ? "bg-primary text-white"
-                : "bg-primary-light text-primary"
-            }
-          `}
-        >
-          <Icon size={29} stroke={1.8} />
-        </div>
+      <div className="pt-[76px] text-center">
 
         <h3 className="font-heading text-2xl font-semibold text-text-primary">
           {plan.name}
@@ -73,16 +61,16 @@ export default function PricingCard({ plan, index }: PricingCardProps) {
         </p>
 
         {/* Preço */}
-        <div className="mt-7 flex items-baseline justify-center gap-1 text-primary tabular-nums">
+        <div className="mt-7 flex flex-wrap items-baseline justify-center gap-1 text-primary tabular-nums">
           <span className="text-xl font-medium">R$</span>
 
           <span className="text-5xl font-bold tracking-tight">
-            {plan.price}
+            {price}
           </span>
 
-          {plan.period && (
+          {period && (
             <span className="text-sm font-medium text-text-secondary">
-              {plan.period}
+              {period}
             </span>
           )}
         </div>
