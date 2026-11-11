@@ -39,7 +39,7 @@ export default function LoginPage() {
       const data = await response.json();
 
       if (response.ok && data.user) {
-        router.push("/dashboard");
+        router.push(`/escolha-perfil/${data.user.id}`);
         router.refresh();
         return;
       }

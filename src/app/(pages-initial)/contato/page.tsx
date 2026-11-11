@@ -2,9 +2,9 @@ import { IconSparkles } from "@tabler/icons-react";
 
 import SectionHeader from "@/src/components/reusable/sectionHeader";
 
-import ContactDecorations from "@/src/components/contato/components/contactDecorations";
-import ContactOptions from "@/src/components/contato/components/contactOptions";
-import ContactEmail from "@/src/components/contato/components/contactEmail";
+import ContactDecorations from "@/src/components/pages-initial/contato/components/contactDecorations";
+import ContactOptions from "@/src/components/pages-initial/contato/components/contactOptions";
+import ContactEmail from "@/src/components/pages-initial/contato/components/contactEmail";
 import CallToAction from "@/src/components/reusable/cta/callToAction";
 
 export default function contatoPage() {

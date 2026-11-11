@@ -1,4 +1,4 @@
-import CallToAction from "../../reusable/cta/callToAction";
+import CallToAction from "../../../reusable/cta/callToAction";
 import CallToActionDecoration from "./components/CallToActionDecoration";
 
 export default function CallToActionSection() {

@@ -1,4 +1,4 @@
-import SectionHeader from "../../reusable/sectionHeader";
+import SectionHeader from "@/src/components/reusable/sectionHeader";
 import { pillars } from "../about.data";
 
 export default function JourneySection() {

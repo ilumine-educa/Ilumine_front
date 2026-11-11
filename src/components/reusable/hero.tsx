@@ -12,9 +12,9 @@ type HeroAction = {
 type HeroProps = {
   title: ReactNode;
   highlight?: ReactNode;
-  description: ReactNode;
+  description?: ReactNode;
   actions?: HeroAction[];
-  visual: ReactNode;
+  visual?: ReactNode;
   align?: "left" | "center";
   fullHeight?: boolean;
   wave?: boolean;

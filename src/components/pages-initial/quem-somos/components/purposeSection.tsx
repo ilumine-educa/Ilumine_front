@@ -1,5 +1,5 @@
 import { values, purposes } from "../about.data";
-import SectionHeader from "../../reusable/sectionHeader";
+import SectionHeader from "@/src/components/reusable/sectionHeader";
 
 export default function PurposeSection() {
   return (

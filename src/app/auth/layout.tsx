@@ -12,12 +12,12 @@ export default function AuthLayout({
       <div className="grid min-h-screen lg:grid-cols-2">
 
         {/* Painel de apresentação */}
-        <section className="relative hidden overflow-hidden bg-primary p-12 text-white lg:flex lg:flex-col lg:justify-between xl:p-16">
+        <section className="relative hidden overflow-hidden rounded-r-4xl bg-primary p-12 text-white lg:flex lg:flex-col lg:justify-between xl:p-16">
 
           {/* Decoração */}
-          <div className="pointer-events-none absolute -right-32 -top-32 size-96 rounded-full border-[50px] border-white/5" />
+          <div className="pointer-events-none absolute -right-32 -top-32 size-96 rounded-full border-50 border-white/5" />
 
-          <div className="pointer-events-none absolute -bottom-40 -left-32 size-96 rounded-full border-[50px] border-white/5" />
+          <div className="pointer-events-none absolute -bottom-40 -left-32 size-96 rounded-full border-50 border-white/5" />
 
           <Link href="/" className="relative z-10 w-fit">
             <Image

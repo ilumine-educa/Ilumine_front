@@ -1,9 +1,9 @@
 import Hero from "@/src/components/reusable/hero";
 
-import AboutHeroVisual from "@/src/components/quem-somos/components/aboutHeroVisual";
-import EssenceSection from "@/src/components/quem-somos/components/essenceSection";
-import PurposeSection from "@/src/components/quem-somos/components/purposeSection";
-import JourneySection from "@/src/components/quem-somos/components/journeySection";
+import AboutHeroVisual from "@/src/components/pages-initial/quem-somos/components/aboutHeroVisual";
+import EssenceSection from "@/src/components/pages-initial/quem-somos/components/essenceSection";
+import PurposeSection from "@/src/components/pages-initial/quem-somos/components/purposeSection";
+import JourneySection from "@/src/components/pages-initial/quem-somos/components/journeySection";
 import CallToAction from "@/src/components/reusable/cta/callToAction";
 
 export default function quemSomosPage() {

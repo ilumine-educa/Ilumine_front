@@ -1,4 +1,4 @@
-import SectionHeader from "../../reusable/sectionHeader";
+import SectionHeader from "../../../reusable/sectionHeader";
 
 import SolutionSteps from "./components/soluctionSteps";
 import SoluctionDecoration from "./components/soluctionDecoration";

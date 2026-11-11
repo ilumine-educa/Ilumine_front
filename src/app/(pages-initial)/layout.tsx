@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
-import HomeNavbar from "@/src/components/template/navbar";
-import HomeFooter from "@/src/components/template/footer";
+import HomeNavbar from "@/src/components/pages-initial/template/navbar";
+import HomeFooter from "@/src/components/pages-initial/template/footer";
 
 export default function InitialPagesLayout({
   children,

@@ -4,7 +4,7 @@ import { plans } from "./plans.data";
 
 import PlansDecorations from "./components/plansDecorations";
 import PricingCard from "./components/pricingCard";
-import SectionHeader from "../../reusable/sectionHeader";
+import SectionHeader from "../../../reusable/sectionHeader";
 
 export default function PlansSection() {
   return (

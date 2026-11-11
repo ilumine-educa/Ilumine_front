@@ -1,9 +1,9 @@
 import Image from "next/image";
-import BenefitsSection from "../../components/home/benefits/benefitsSection";
-import CallToActionSection from "../../components/home/cta/CallToActionSection";
-import ImpactSection from "../../components/home/impact/impactSection";
-import PlansSection from "../../components/home/plans/plansSection";
-import SolutionSection from "../../components/home/soluction/soluctionSection";
+import BenefitsSection from "@/src/components/pages-initial/home/benefits/benefitsSection";
+import CallToActionSection from "@/src/components/pages-initial/home/cta/CallToActionSection";
+import ImpactSection from "@/src/components/pages-initial/home/impact/impactSection";
+import PlansSection from "@/src/components/pages-initial/home/plans/plansSection";
+import SolutionSection from "@/src/components/pages-initial/home/soluction/soluctionSection";
 import { IconArrowNarrowRight, IconPlayerPlay } from "@tabler/icons-react";
 import Hero from "../../components/reusable/hero";
 export default function homePage() {
@@ -27,7 +27,7 @@ export default function homePage() {
         actions={[
           {
             label: "Comece agora",
-            href: "/cadastro",
+            href: "/auth/cadastro",
             icon: <IconArrowNarrowRight size={20} />,
           },
           {

@@ -1,6 +1,6 @@
 import { impacts } from "./impact.data";
-import SectionHeader from "../../reusable/sectionHeader";
-import InfoCard from "../../reusable/card/infoCard";
+import SectionHeader from "../../../reusable/sectionHeader";
+import InfoCard from "../../../reusable/card/infoCard";
 import ImpactDecoration from "./components/ImpactDecoration";
 
 export default function ImpactSection() {

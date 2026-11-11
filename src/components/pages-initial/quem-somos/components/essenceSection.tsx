@@ -1,4 +1,4 @@
-import SectionHeader from "../../reusable/sectionHeader";
+import SectionHeader from "@/src/components/reusable/sectionHeader";
 
 export default function EssenceSection() {
   return (

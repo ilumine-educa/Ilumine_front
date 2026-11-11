@@ -10,7 +10,6 @@ export default function HomeNavbar() {
 
   const navLinks = [
     { label: "Início", href: "/" },
-    { label: "Solução", href: "/#solucao" },
     { label: "Quem somos", href: "/quem-somos/" },
     { label: "Contato", href: "/contato/" },
   ];
