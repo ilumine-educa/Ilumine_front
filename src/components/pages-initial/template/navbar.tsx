@@ -1,16 +1,45 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { IconMenu2, IconX } from "@tabler/icons-react";
 
 export default function HomeNavbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    let frame = 0;
+
+    const updateScrolled = () => {
+      frame = 0;
+
+      setScrolled((previous) =>
+        previous ? window.scrollY > 8 : window.scrollY > 32,
+      );
+    };
+
+    const onScroll = () => {
+      if (!frame) {
+        frame = window.requestAnimationFrame(updateScrolled);
+      }
+    };
+
+    updateScrolled();
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.cancelAnimationFrame(frame);
+    };
+  }, []);
 
   const navLinks = [
     { label: "Início", href: "/" },
     { label: "Quem somos", href: "/quem-somos/" },
+    { label: "Nossa Equipe", href: "/equipe/" },
     { label: "Contato", href: "/contato/" },
   ];
 
@@ -18,17 +47,28 @@ export default function HomeNavbar() {
 
   return (
     <header
+      data-scrolled={scrolled}
       className="
-      fixed inset-x-0 top-0 z-50
-      w-full bg-surface shadow-sm
-    "
+    fixed z-50
+    top-4 inset-x-6 lg:inset-x-[10%]
+    rounded-3xl bg-surface shadow-lg
+
+    data-[scrolled=true]:top-0
+    data-[scrolled=true]:inset-x-0
+    data-[scrolled=true]:rounded-none
+    data-[scrolled=true]:shadow-sm
+
+    motion-safe:transition-[top,inset-inline,border-radius,box-shadow]
+    motion-safe:duration-600
+    motion-safe:ease-[cubic-bezier(0.22,1,0.36,1)]
+  "
     >
       <div
         className="
         mx-auto flex w-full min-h-20
         items-center justify-between gap-3
         px-4 py-3 sm:px-6
-        lg:px-12 xl:px-20
+        lg:px-8 2xl:px-20
       "
       >
         {/* Logo */}
@@ -49,11 +89,11 @@ export default function HomeNavbar() {
         </Link>
 
         {/* Navegação Desktop */}
-        <nav aria-label="Navegação principal" className="hidden lg:block">
+        <nav aria-label="Navegação principal" className="hidden xl:block">
           <ul
             className="
-            flex items-center gap-6
-            font-medium xl:gap-7
+            flex items-center gap-5 whitespace-nowrap
+            font-medium 2xl:gap-7
           "
           >
             {navLinks.map((item) => (
@@ -84,7 +124,7 @@ export default function HomeNavbar() {
         <div
           className="
           hidden shrink-0 items-center gap-2
-          text-sm font-semibold lg:flex
+          text-sm font-semibold xl:flex
         "
         >
           <Link
@@ -130,7 +170,7 @@ export default function HomeNavbar() {
             text-primary
             transition-colors
             hover:bg-primary-light
-            lg:hidden
+            xl:hidden
           "
         >
           {menuOpen ? (
@@ -147,7 +187,7 @@ export default function HomeNavbar() {
         className={`
           absolute left-0 top-full w-full
           overflow-hidden bg-surface
-          shadow-md lg:hidden
+          shadow-md xl:hidden
           transition-all duration-300 ease-in-out
           ${
             menuOpen
