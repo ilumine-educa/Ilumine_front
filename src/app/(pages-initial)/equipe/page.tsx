@@ -41,7 +41,7 @@ export default function TeamPage() {
                 src={teamPhoto.src}
                 alt={teamPhoto.alt ?? "Equipe da Ilumine.Educa reunida"}
                 fill
-                sizes="(min-width: 1152px) 1088px, 100vw"
+                sizes="(min-width: 1921px) min(56.667vw, 1451px), (min-width: 1152px) 1088px, 100vw"
                 className="object-cover"
               />
             ) : (

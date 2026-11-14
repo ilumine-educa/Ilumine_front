@@ -101,7 +101,7 @@ export default function FeatureBanner({
           fill
           priority
           className="object-contain object-bottom"
-          sizes="(max-width: 1024px) 280px, 320px"
+          sizes="(min-width: 1921px) min(19.167vw, 491px), (max-width: 1024px) 280px, 368px"
         />
       </div>
     </article>

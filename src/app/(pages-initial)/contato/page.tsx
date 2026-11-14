@@ -13,7 +13,7 @@ export default function contatoPage() {
       id="contato"
       className="
         relative isolate overflow-hidden
-        bg-background px-4 py-20
+        bg-background px-4 pb-20 pt-28
         sm:px-6 sm:py-28 lg:px-12
       "
     >

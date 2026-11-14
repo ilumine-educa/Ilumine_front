@@ -34,9 +34,6 @@ export default function Hero() {
 
         <div className="relative isolate mx-auto aspect-[1.05] w-full min-w-0 max-w-[32rem] md:max-w-none">
           <div className={styles.blueShape} aria-hidden="true" />
-          <svg className="absolute top-[8%] left-0 w-[13%] text-warning" viewBox="0 0 100 90" fill="none" aria-hidden="true">
-            <path d="m49 32-6-22M67 38l12-18M31 50 10 44" stroke="currentColor" strokeWidth="10" strokeLinecap="round" />
-          </svg>
           <Image
             src="/images/hero/crianca-tablet.png"
             alt="Criança sorrindo enquanto utiliza um tablet."
@@ -47,9 +44,6 @@ export default function Hero() {
             fetchPriority="high"
             className="absolute bottom-0 left-0 h-auto w-[84%] object-contain"
           />
-          <svg className="absolute top-[45%] left-0 w-[8%] text-primary" viewBox="0 0 60 60" fill="none" aria-hidden="true">
-            <path d="m12 12 8 17M5 43l18 2" stroke="currentColor" strokeWidth="6" strokeLinecap="round" />
-          </svg>
         </div>
       </div>
       <svg className="pointer-events-none absolute inset-x-0 -bottom-px z-1 h-[clamp(3rem,7vw,10rem)] w-full" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">

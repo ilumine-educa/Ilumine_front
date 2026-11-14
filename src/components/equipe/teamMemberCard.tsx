@@ -16,8 +16,14 @@ export default function TeamMemberCard({ member }: { member: TeamMember }) {
             src={member.photo.src}
             alt={member.photo.alt}
             fill
-            sizes="(min-width: 640px) 128px, 112px"
-            className="object-cover object-top"
+            sizes="(min-width: 1921px) min(6.667vw, 171px), (min-width: 640px) 128px, 112px"
+            className={`object-cover ${
+              member.name === "Caio Lima"
+                ? "object-[center_35%]"
+                : member.name === "Cauã Gabriel" || member.name === "Ana Paula"
+                  ? "object-[center_40%]"
+                  : "object-top"
+            }`}
           />
         ) : (
           <div
@@ -25,8 +31,14 @@ export default function TeamMemberCard({ member }: { member: TeamMember }) {
             aria-label={`Foto de ${member.name} ainda não disponível`}
             className="relative isolate flex size-full items-center justify-center bg-primary-light/40"
           >
-            <span aria-hidden="true" className="absolute -bottom-6 -right-6 -z-10 size-20 rounded-full bg-secondary-light" />
-            <span aria-hidden="true" className="font-heading text-4xl font-medium tracking-wide text-text-primary">
+            <span
+              aria-hidden="true"
+              className="absolute -bottom-6 -right-6 -z-10 size-20 rounded-full bg-secondary-light"
+            />
+            <span
+              aria-hidden="true"
+              className="font-heading text-4xl font-medium tracking-wide text-text-primary"
+            >
               {initials}
             </span>
           </div>
@@ -37,22 +49,17 @@ export default function TeamMemberCard({ member }: { member: TeamMember }) {
         <h3 className="break-words font-heading text-2xl leading-tight text-text-primary">
           {member.name}
         </h3>
-        <ul aria-label="Funções no projeto" className="mt-3 flex flex-wrap gap-2">
-          {member.roles.map((role) => (
-            <li key={role} className="rounded-lg bg-primary-light/25 px-3 py-1.5 text-xs font-medium leading-relaxed text-text-primary">
-              {role}
-            </li>
-          ))}
-        </ul>
+        <p className="mt-2 text-sm leading-relaxed text-text-secondary">
+          {member.roles.join(" · ")}
+        </p>
         {member.description && (
           <p className="mt-3 text-sm leading-relaxed text-text-secondary">
             {member.description}
           </p>
         )}
 
-        {(member.github || member.linkedin) && (
           <div className="mt-auto flex gap-2 pt-4">
-            {member.github && (
+            {member.github ? (
               <a
                 href={member.github}
                 aria-label={`GitHub de ${member.name}`}
@@ -60,8 +67,18 @@ export default function TeamMemberCard({ member }: { member: TeamMember }) {
               >
                 <IconBrandGithub size={21} aria-hidden="true" />
               </a>
+            ) : (
+              <button
+                type="button"
+                disabled
+                aria-label={`GitHub de ${member.name}: link ainda não disponível`}
+                title="GitHub ainda não disponível"
+                className="inline-flex size-11 cursor-not-allowed items-center justify-center rounded-xl border border-border text-text-muted"
+              >
+                <IconBrandGithub size={21} aria-hidden="true" />
+              </button>
             )}
-            {member.linkedin && (
+            {member.linkedin ? (
               <a
                 href={member.linkedin}
                 aria-label={`LinkedIn de ${member.name}`}
@@ -69,9 +86,18 @@ export default function TeamMemberCard({ member }: { member: TeamMember }) {
               >
                 <IconBrandLinkedin size={21} aria-hidden="true" />
               </a>
+            ) : (
+              <button
+                type="button"
+                disabled
+                aria-label={`LinkedIn de ${member.name}: link ainda não disponível`}
+                title="LinkedIn ainda não disponível"
+                className="inline-flex size-11 cursor-not-allowed items-center justify-center rounded-xl border border-border text-text-muted"
+              >
+                <IconBrandLinkedin size={21} aria-hidden="true" />
+              </button>
             )}
           </div>
-        )}
       </div>
     </article>
   );

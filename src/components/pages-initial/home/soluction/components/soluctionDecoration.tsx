@@ -129,15 +129,15 @@ export default function SoluctionDecoration() {
         title="Cada conquista importa"
         variant="secondary"
         animationDuration={6}
-        className="-bottom-3 left-0 lg:-left-5"
+        className="bottom-8 left-0 lg:-left-5"
       />
 
       {/* Dispositivos */}
       <div
         className="
           relative mx-auto
-          h-[390px] w-full
-          sm:h-[500px]
+          h-97.5 w-full
+          sm:h-125
           [perspective:1400px]
         "
       >
@@ -175,7 +175,7 @@ export default function SoluctionDecoration() {
               alt="Painel de acompanhamento do Ilumine Educa"
               fill
               priority
-              sizes="(max-width: 768px) 70vw, 500px"
+              sizes="(min-width: 1921px) min(26.042vw, 667px), (max-width: 768px) 70vw, 500px"
               className="object-cover object-top"
             />
           </div>
@@ -215,7 +215,7 @@ export default function SoluctionDecoration() {
               src="/images/ilumine-mobile.png"
               alt="Experiência interativa do Ilumine Educa"
               fill
-              sizes="(max-width: 768px) 40vw, 250px"
+              sizes="(min-width: 1921px) min(13.021vw, 334px), (max-width: 768px) 40vw, 250px"
               className="object-cover object-top"
             />
           </div>

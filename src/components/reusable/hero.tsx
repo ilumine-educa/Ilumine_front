@@ -211,9 +211,9 @@ export default function Hero({
       <div
         className={`
           relative z-10 mx-auto grid w-full
-          max-w-[1600px] grid-cols-1 items-center
+          max-w-[100rem] grid-cols-1 items-center
           gap-10 px-4 sm:px-8
-          md:grid-cols-[1.1fr_1fr] md:gap-8
+          ${visual ? "md:grid-cols-[1.1fr_1fr] md:gap-8" : ""}
           lg:px-12
           ${fullHeight ? "min-h-dvh pt-24 pb-28" : ""}
         `}
@@ -222,7 +222,7 @@ export default function Hero({
         <div
           className={`
             relative z-10 min-w-0
-            ${align === "center" ? "text-center" : "text-left"}
+            ${align === "center" ? "mx-auto w-full max-w-5xl text-center" : "text-left"}
           `}
         >
           <h1
@@ -289,9 +289,11 @@ export default function Hero({
         </div>
 
         {/* Elemento visual */}
-        <div className="relative mx-auto w-full min-w-0 max-w-lg md:max-w-none">
-          {visual}
-        </div>
+        {visual && (
+          <div className="relative mx-auto w-full min-w-0 max-w-lg md:max-w-none">
+            {visual}
+          </div>
+        )}
       </div>
 
       {/* Decoração inferior */}

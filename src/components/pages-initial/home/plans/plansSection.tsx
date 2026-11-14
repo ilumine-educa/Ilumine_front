@@ -44,7 +44,7 @@ export default function PlansSection() {
             <div className="relative mx-auto grid w-60 max-w-full grid-cols-2 rounded-full border border-border bg-surface-secondary p-1">
               <span
                 aria-hidden="true"
-                className={`pointer-events-none absolute inset-y-1 left-1 w-[calc(50%-4px)] rounded-full bg-primary transition-transform duration-200 ease-out motion-reduce:transition-none ${billingPeriod === "annual" ? "translate-x-full" : "translate-x-0"}`}
+                className={`pointer-events-none absolute inset-y-1 left-1 w-[calc(50%-0.25rem)] rounded-full bg-primary transition-transform duration-200 ease-out motion-reduce:transition-none ${billingPeriod === "annual" ? "translate-x-full" : "translate-x-0"}`}
               />
               <label className="relative cursor-pointer">
                 <input

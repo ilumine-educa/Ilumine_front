@@ -31,7 +31,8 @@
   transform: rotate(24deg);
 }
 
-.highlight::after {
+.highlight::after,
+.homeHighlight::after {
   position: absolute;
   z-index: -1;
   bottom: -4px;
@@ -42,6 +43,14 @@
   background: var(--warning);
   transform: rotate(-2deg);
   content: "";
+}
+
+.homeHighlight::after {
+  width: 100%;
+}
+
+.hero a {
+  border-color: var(--text-primary);
 }
 
 .blueShape {

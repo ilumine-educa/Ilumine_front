@@ -19,7 +19,7 @@ export default function PricingCard({ plan, index, billingPeriod = "monthly" }: 
       data-home-delay={index}
       className={`
         group relative flex h-full min-w-0 flex-col
-        lg:min-h-[520px]
+        lg:min-h-[32.5rem]
         rounded-3xl border p-6
         transition-all duration-300
         hover:-translate-y-2 hover:shadow-xl
@@ -50,7 +50,7 @@ export default function PricingCard({ plan, index, billingPeriod = "monthly" }: 
       )}
 
       {/* Cabeçalho */}
-      <div className="pt-[76px] text-center">
+      <div className="pt-19 text-center">
 
         <h3 className="font-heading text-2xl font-semibold text-text-primary">
           {plan.name}

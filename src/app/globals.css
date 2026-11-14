@@ -119,6 +119,15 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Acima de Full HD, as medidas em rem do Tailwind crescem juntas.
+   Em 2560px, a escala chega a 133,33% e para de crescer.
+   O limite depende da largura da janela em CSS, não da resolução física. */
+@media (min-width: 1921px) {
+  html {
+    font-size: clamp(100%, 0.833333vw, 133.333333%);
+  }
+}
+
 body {
   background: var(--background);
   color: var(--text-primary);
