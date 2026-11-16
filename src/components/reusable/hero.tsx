@@ -1,6 +1,5 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { IconArrowNarrowRight } from "@tabler/icons-react";
 
 type HeroAction = {
   label: string;
@@ -51,11 +50,7 @@ export default function Hero({
         >
           {/* Círculo superior esquerdo */}
           <svg
-            className="
-              absolute -left-20 -top-24
-              h-72 w-72 opacity-30
-              sm:h-96 sm:w-96
-            "
+            className="absolute -left-20 -top-24 h-72 w-72 opacity-30 sm:h-96 sm:w-96"
             viewBox="0 0 400 400"
             fill="none"
           >
@@ -87,11 +82,7 @@ export default function Hero({
 
           {/* Pontos superiores direitos */}
           <svg
-            className="
-              absolute -right-4 top-[8%]
-              h-40 w-40 opacity-40
-              sm:right-[4%] sm:h-52 sm:w-52
-            "
+            className="absolute -right-4 top-[8%] h-40 w-40 opacity-40 sm:right-[4%] sm:h-52 sm:w-52"
             viewBox="0 0 200 200"
             fill="var(--primary)"
           >
@@ -110,11 +101,7 @@ export default function Hero({
 
           {/* Linhas curvas laterais */}
           <svg
-            className="
-              absolute -right-20 top-[35%]
-              h-72 w-72 opacity-30
-              sm:right-0 sm:h-96 sm:w-96
-            "
+            className="absolute -right-20 top-[35%] h-72 w-72 opacity-30 sm:right-0 sm:h-96 sm:w-96"
             viewBox="0 0 400 400"
             fill="none"
           >
@@ -133,11 +120,7 @@ export default function Hero({
 
           {/* Brilho superior */}
           <svg
-            className="
-              absolute left-[45%] top-[12%]
-              h-9 w-9 text-secondary
-              opacity-60 sm:h-12 sm:w-12
-            "
+            className="absolute left-[45%] top-[12%] h-9 w-9 text-secondary opacity-60 sm:h-12 sm:w-12"
             viewBox="0 0 40 40"
             fill="currentColor"
           >
@@ -146,11 +129,7 @@ export default function Hero({
 
           {/* Brilho lateral */}
           <svg
-            className="
-              absolute bottom-[28%] left-[4%]
-              h-6 w-6 text-primary
-              opacity-50 sm:h-9 sm:w-9
-            "
+            className="absolute bottom-[28%] left-[4%] h-6 w-6 text-primary opacity-50 sm:h-9 sm:w-9"
             viewBox="0 0 40 40"
             fill="currentColor"
           >
@@ -159,10 +138,7 @@ export default function Hero({
 
           {/* Pequenos círculos */}
           <svg
-            className="
-              absolute bottom-[18%] right-[38%]
-              h-20 w-20 opacity-40
-            "
+            className="absolute bottom-[18%] right-[38%] h-20 w-20 opacity-40"
             viewBox="0 0 100 100"
             fill="none"
           >
@@ -184,11 +160,7 @@ export default function Hero({
 
           {/* Mancha orgânica inferior direita */}
           <svg
-            className="
-              absolute -bottom-20 -right-20
-              h-72 w-72 opacity-30
-              sm:h-96 sm:w-96
-            "
+            className="absolute -bottom-20 -right-20 h-72 w-72 opacity-30 sm:h-96 sm:w-96"
             viewBox="0 0 400 400"
             fill="none"
           >
@@ -281,7 +253,7 @@ export default function Hero({
                   `}
                 >
                   {action.label}
-                  {action.icon ?? <IconArrowNarrowRight size={20} />}
+                  {action.icon}
                 </Link>
               ))}
             </div>

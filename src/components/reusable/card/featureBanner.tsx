@@ -46,6 +46,7 @@ export default function FeatureBanner({
       className={`
         relative isolate flex flex-col
         overflow-hidden rounded-4xl
+        border border-border
         p-8
         ${backgroundColor}
         ${minHeight}
