@@ -2,10 +2,7 @@
 
 import { useRouter } from "next/navigation";
 
-import { IconUser, IconUserPlus, IconBabyBottle } from "@tabler/icons-react";
-
 import ProfileAnnouncements from "./profileAnnouncements";
-import SectionHeader from "../../reusable/sectionHeader";
 import { useState } from "react";
 import ProfileCard from "./profileCard";
 import Hero from "../../reusable/hero";
@@ -18,12 +15,12 @@ interface Child {
 
 interface ChooseProfileProps {
   responsibleId: string;
-  children: Child[];
+  profiles: Child[];
 }
 
 export default function ChooseProfile({
   responsibleId,
-  children,
+  profiles: children,
 }: ChooseProfileProps) {
   const router = useRouter();
   const hasChildren = children.length > 0;
@@ -53,7 +50,7 @@ export default function ChooseProfile({
                   : "Cadastre uma criança para começar a explorar os jogos e atividades do Ilumine."
               }
               href={
-                hasChildren ? undefined : `/cadastro-crianca/${responsibleId}`
+                hasChildren ? undefined : `/dashboard/${responsibleId}/filhos?novo=1`
               }
               onClick={
                 hasChildren
@@ -80,7 +77,7 @@ export default function ChooseProfile({
                 hasChildren
                   ? {
                       label: "Cadastrar outra criança",
-                      href: `/cadastro-crianca/${responsibleId}`,
+                      href: `/dashboard/${responsibleId}/filhos?novo=1`,
                     }
                   : undefined
               }

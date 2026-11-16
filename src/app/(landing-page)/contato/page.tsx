@@ -1,8 +1,3 @@
-import { IconSparkles } from "@tabler/icons-react";
-
-import SectionHeader from "@/src/components/reusable/sectionHeader";
-
-import ContactDecorations from "@/src/components/pages-initial/contato/components/contactDecorations";
 import ContactOptions from "@/src/components/landing-page/contato/components/contactOptions";
 import ContactEmail from "@/src/components/landing-page/contato/components/contactEmail";
 import CallToAction from "@/src/components/reusable/cta/callToAction";

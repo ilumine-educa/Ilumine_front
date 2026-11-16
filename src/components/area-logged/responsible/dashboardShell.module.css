@@ -1,0 +1,18 @@
+.shell[data-high-contrast="true"] {
+  --text-secondary: var(--text-primary);
+  --text-muted: var(--text-primary);
+  --border: var(--text-primary);
+}
+
+.shell[data-large-text="true"] :is(p, label, a, button, input, select, legend) {
+  font-size: 1.125rem;
+  line-height: 1.65;
+}
+
+.shell[data-reduced-motion="true"] *,
+.shell[data-reduced-motion="true"] *::before,
+.shell[data-reduced-motion="true"] *::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}

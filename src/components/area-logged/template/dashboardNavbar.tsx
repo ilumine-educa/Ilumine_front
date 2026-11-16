@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
-import { IconLogout } from "@tabler/icons-react";
+import LogoutButton from "./logoutButton";
 
 import ThemeSelector from "../../reusable/theme/themeSelector";
 
@@ -33,20 +33,7 @@ export default function DashboardNavbar() {
           <ThemeSelector />
 
           {!isGameSelection && (
-            <Link
-              href="/auth/login"
-              className="
-                flex items-center gap-2
-                rounded-xl border border-border
-                px-4 py-2.5 text-sm font-semibold
-                text-text-secondary
-                transition-all
-                hover:bg-surface-secondary hover:text-error
-              "
-            >
-              <IconLogout size={18} />
-              <span>Sair</span>
-            </Link>
+            <LogoutButton />
           )}
         </div>
       </nav>
