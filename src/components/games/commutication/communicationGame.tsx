@@ -4,9 +4,7 @@ import { useMemo, useState } from "react";
 
 import {
   IconArrowLeft,
-  IconBackspace,
   IconCheck,
-  IconPlayerPlay,
   IconRefresh,
   IconVolume2,
 } from "@tabler/icons-react";
@@ -20,7 +18,7 @@ import {
 } from "@/src/database/comunnicationWords";
 import { useParams } from "next/navigation";
 
-export default function CommunicationGame() {
+export default function CommunicationGame({ fromCatalog = false }: { fromCatalog?: boolean }) {
   const params = useParams<{
     idResp: string;
     idKid: string;
@@ -75,11 +73,11 @@ export default function CommunicationGame() {
         {/* Cabeçalho */}
         <header className="mb-8 flex items-center justify-between gap-4">
           <Link
-            href={`/escolher-jogo/${idResp}/${idKid}`}
+            href={`/escolher-jogo/${idResp}/${idKid}${fromCatalog ? "/rapidos" : ""}`}
             className="flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2 text-sm font-medium text-text-secondary transition hover:bg-surface-secondary"
           >
             <IconArrowLeft size={18} />
-            Voltar
+            {fromCatalog ? "Voltar a Quick Games" : "Voltar"}
           </Link>
 
           <span className="rounded-full bg-primary-light px-4 py-2 text-sm font-semibold text-primary">

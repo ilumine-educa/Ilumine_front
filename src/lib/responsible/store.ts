@@ -7,6 +7,7 @@ import { findChildrenByResponsibleId } from "@/src/database/children";
 import { defaultAccessibility, type AccountSettings, type ChildProfile } from "./types";
 
 type Store = {
+  trails?: Record<string, Partial<Record<"portugues" | "matematica", number>>>;
   children: ChildProfile[];
   accounts: Record<string, AccountSettings>;
   sessions: { tokenHash: string; userId: number; expiresAt: number }[];

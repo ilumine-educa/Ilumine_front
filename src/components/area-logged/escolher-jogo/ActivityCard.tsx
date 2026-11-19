@@ -1,98 +1,18 @@
 import Link from "next/link";
-import type { ComponentType } from "react";
-import { IconArrowUpRight } from "@tabler/icons-react";
+import { IconArrowRight } from "@tabler/icons-react";
+import PaperArt, { type ArtKind } from "./paperArt";
 
-interface ActivityCardProps {
-  title: string;
-  description: string;
-  label: string;
-  href: string;
+type Props = { title: string; description: string; href: string; art: ArtKind };
 
-  icon: ComponentType<{
-    size?: number;
-    stroke?: number;
-    className?: string;
-  }>;
-
-  background: string;
-  iconBackground: string;
-  iconColor: string;
-  labelColor: string;
-}
-
-export default function ActivityCard({
-  title,
-  description,
-  label,
-  href,
-  icon: Icon,
-  background,
-  iconBackground,
-  iconColor,
-  labelColor,
-}: ActivityCardProps) {
-  return (
-    <Link
-      href={href}
-      className={`
-        group relative flex min-h-80 flex-col
-        overflow-hidden rounded-4xl
-        border border-border/70
-        p-7 sm:p-8
-        transition-all duration-300
-        hover:-translate-y-2 hover:shadow-lg
-        ${background}
-      `}
-    >
-      {/* Ícone */}
-      <div
-        className={`
-          flex size-16 items-center justify-center
-          rounded-2xl ${iconBackground}
-          transition-transform duration-300
-          group-hover:rotate-6 group-hover:scale-110
-        `}
-      >
-        <Icon size={34} stroke={1.8} className={iconColor} />
+export default function ActivityCard({ title, description, href, art }: Props) {
+  return <Link href={href} className="group flex flex-col rounded-3xl border border-border bg-surface p-3 shadow-sm hover:border-primary focus-visible:outline-offset-4 motion-safe:transition-shadow hover:shadow-md">
+    <PaperArt kind={art} />
+    <div className="flex flex-1 items-start justify-between gap-3 px-2 py-4 sm:px-4 sm:py-6">
+      <div>
+        <h2 className="font-heading text-2xl sm:text-3xl">{title}</h2>
+        <p className="mt-1 leading-relaxed text-text-primary">{description}</p>
       </div>
-
-      {/* Identificação */}
-      <span
-        className={`
-          mt-6 w-fit rounded-full
-          px-3 py-1 text-xs font-semibold
-          ${labelColor}
-        `}
-      >
-        {label}
-      </span>
-
-      {/* Conteúdo */}
-      <h2 className="mt-4 font-heading text-3xl font-bold text-text-primary">
-        {title}
-      </h2>
-
-      <p className="mt-3 max-w-sm text-sm leading-relaxed text-text-secondary">
-        {description}
-      </p>
-
-      {/* Ação */}
-      <div className="mt-auto flex items-center justify-between pt-8">
-        <span className="font-semibold text-primary">
-          Vamos começar?
-        </span>
-
-        <div
-          className="
-            flex size-10 items-center justify-center
-            rounded-full bg-white text-primary shadow-sm
-            transition-all duration-300
-            group-hover:translate-x-1
-          "
-        >
-          <IconArrowUpRight size={22} />
-        </div>
-      </div>
-    </Link>
-  );
+      <IconArrowRight aria-hidden className="mt-2 shrink-0 text-primary" />
+    </div>
+  </Link>;
 }
