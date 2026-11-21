@@ -7,6 +7,7 @@ import {
   IconBrandYoutube,
   IconArrowUpRight,
 } from "@tabler/icons-react";
+import CurrentYear from "../../reusable/data/currentYear";
 
 const navLinks = [
   { label: "Início", href: "/" },
@@ -193,7 +194,7 @@ export default function HomeFooter() {
           "
         >
           <p>
-            © {new Date().getFullYear()} Ilumine Educa. Todos os direitos
+            © <CurrentYear/> Ilumine Educa. Todos os direitos
             reservados.
           </p>
           <div className="flex gap-5 items-center">

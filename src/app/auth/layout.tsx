@@ -1,4 +1,5 @@
 
+import CurrentYear from "@/src/components/reusable/data/currentYear";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -43,7 +44,7 @@ export default function AuthLayout({
           </div>
 
           <p className="relative z-10 text-sm text-white/60">
-            Ilumine Educa © {new Date().getFullYear()}
+            Ilumine Educa © <CurrentYear/>
           </p>
         </section>
 

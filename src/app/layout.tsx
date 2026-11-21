@@ -1,6 +1,8 @@
+
 import type { Metadata } from "next";
 import { Fredoka, Poppins } from "next/font/google";
 import "./globals.css";
+import VLibras from "../components/accessibility/vLibras";
 
 const fredoka = Fredoka({
   variable: "--font-fredoka",
@@ -15,18 +17,23 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Ilumine educa",
+  title: "Ilumine Educa",
   description:
-    "o aprendizado se torna mais acessível, divertido e personalizado.",
+    "O aprendizado se torna mais acessível, divertido e personalizado.",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: LayoutProps<"/">) {
   return (
     <html
       lang="pt-BR"
       className={`${fredoka.variable} ${poppins.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="flex min-h-full flex-col">
+        {children}
+        <VLibras/>
+      </body>
     </html>
   );
 }
