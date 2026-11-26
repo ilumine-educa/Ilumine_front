@@ -1,7 +1,7 @@
 import Image from "next/image";
 import SectionHeader from "@/src/components/reusable/sectionHeader";
 import TeamMemberCard from "@/src/components/landing-page/equipe/teamMemberCard";
-import { teamMembers } from "@/src/components/landing-page/equipe/teamData";
+import { teamMembers, teamPhoto } from "@/src/components/landing-page/equipe/teamData";
 import Hero from "@/src/components/reusable/hero";
 import CallToAction from "@/src/components/reusable/cta/callToAction";
 
@@ -19,8 +19,8 @@ export default function TeamPage() {
           <>
             <div className="relative flex min-h-96 w-full items-center justify-center overflow-hidden rounded-3xl border border-border bg-primary-light/25">
               <Image
-                src="/images/equipe/BrunoHenrique.png"
-                alt="Equipe reunida"
+                src={teamPhoto.src}
+                alt={teamPhoto.alt}
                 fill
                 sizes="(min-width: 1921px) min(56.667vw, 1451px), (min-width: 1152px) 1088px, 100vw"
                 className="object-cover"

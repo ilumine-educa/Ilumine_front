@@ -1,6 +1,6 @@
 import { Suspense, type ReactNode } from "react";
 import { redirect } from "next/navigation";
-import { getCurrentUser } from "@/src/lib/responsible/session";
+import { isLocalDemo } from "@/src/lib/demo/local";
 
 import DashboardNavbar from "@/src/components/area-logged/template/dashboardNavbar";
 
@@ -9,11 +9,11 @@ interface DashboardLayoutProps {
 }
 
 export default function DashboardLayout({ children }: DashboardLayoutProps) {
-  return <Suspense fallback={<p role="status" className="p-8 text-center">Carregando seu espaço…</p>}><AuthenticatedArea>{children}</AuthenticatedArea></Suspense>;
+  return <Suspense fallback={<p role="status" className="p-8 text-center">Carregando seu espaço…</p>}><DemoArea>{children}</DemoArea></Suspense>;
 }
 
-async function AuthenticatedArea({ children }: DashboardLayoutProps) {
-  if (!await getCurrentUser()) redirect("/auth/login");
+async function DemoArea({ children }: DashboardLayoutProps) {
+  if (!await isLocalDemo()) redirect("/auth/login");
   return (
     <div className="min-h-screen bg-background">
       <DashboardNavbar />

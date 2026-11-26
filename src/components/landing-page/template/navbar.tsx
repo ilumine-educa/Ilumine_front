@@ -3,12 +3,22 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import { IconMenu2, IconX } from "@tabler/icons-react";
 
 import ThemeSelector from "../../reusable/theme/themeSelector";
+import styles from "./navbar.module.css";
 
 export default function HomeNavbar() {
+  const pathname = usePathname().replace(/\/+$/, "") || "/";
+
+  function currentItem(href: string) {
+    if (pathname === href) return "page";
+    if (href !== "/" && pathname.startsWith(href + "/")) return "location";
+    return undefined;
+  }
+
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -43,9 +53,9 @@ export default function HomeNavbar() {
 
   const navLinks = [
     { label: "Início", href: "/" },
-    { label: "Sobre nós", href: "/sobre/" },
-    { label: "Nossa Equipe", href: "/equipe/" },
-    { label: "Contato", href: "/contato/" },
+    { label: "Sobre nós", href: "/sobre" },
+    { label: "Nossa Equipe", href: "/equipe" },
+    { label: "Contato", href: "/contato" },
   ];
 
   const closeMenu = () => setMenuOpen(false);
@@ -100,7 +110,8 @@ export default function HomeNavbar() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="
+                  aria-current={currentItem(item.href)}
+                  className={`${styles.desktopLink}
                     relative py-2
                     text-text-primary
                     transition-colors duration-200
@@ -111,7 +122,7 @@ export default function HomeNavbar() {
                     after:bg-primary
                     after:transition-all
                     hover:after:w-full
-                  "
+                  `}
                 >
                   {item.label}
                 </Link>
@@ -197,13 +208,14 @@ export default function HomeNavbar() {
                 <Link
                   href={item.href}
                   onClick={closeMenu}
-                  className="
+                  aria-current={currentItem(item.href)}
+                  className={`${styles.mobileLink}
                     block rounded-lg px-4 py-3
                     font-medium text-text-primary
                     transition-colors
                     hover:bg-primary-light
                     hover:text-primary
-                  "
+                  `}
                 >
                   {item.label}
                 </Link>

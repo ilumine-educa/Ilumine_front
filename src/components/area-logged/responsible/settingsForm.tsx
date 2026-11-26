@@ -1,37 +1,15 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { IconShieldCheck } from "@tabler/icons-react";
 import type { AccountSettings, PublicAccount } from "@/src/lib/responsible/types";
 import { PageHeading, PreferenceToggle, buttonClass, inputClass, panelClass } from "./dashboardUi";
 
 export default function SettingsForm({ account, settings }: { account: PublicAccount; settings: AccountSettings }) {
-  const router = useRouter();
-  const [busy, setBusy] = useState(false);
-  const [message, setMessage] = useState("");
-  const [error, setError] = useState("");
-  async function save(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const form = new FormData(event.currentTarget);
-    setBusy(true); setMessage(""); setError("");
-    try {
-      const response = await fetch("/api/responsavel/configuracoes", {
-        method: "PUT", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: form.get("name"), notifications: { platform: form.has("platform"), reminders: form.has("reminders") }, accessibility: { largeText: form.has("largeText"), highContrast: form.has("highContrast"), reducedMotion: form.has("reducedMotion") } }),
-      });
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.message || "Não foi possível salvar.");
-      setMessage("Configurações salvas. Os ajustes de acessibilidade foram aplicados à área do responsável.");
-      router.refresh();
-    } catch (error) { setError(error instanceof Error ? error.message : "Falha de conexão. Tente novamente."); }
-    finally { setBusy(false); }
-  }
   return <>
     <PageHeading title="Configurações" description="Seu espaço, do seu jeito. Cuide da conta e escolha como prefere usar a área do responsável." />
-    <form onSubmit={save} className="space-y-6">
-      <fieldset disabled={busy} className="space-y-6 disabled:opacity-60">
+    <div className="space-y-6">
+      <fieldset className="space-y-6 disabled:opacity-60">
         <legend className="sr-only">Configurações da conta</legend>
         <section className={panelClass} aria-labelledby="account-title">
           <h2 id="account-title" className="font-heading text-2xl">Conta do responsável</h2>
@@ -44,8 +22,7 @@ export default function SettingsForm({ account, settings }: { account: PublicAcc
         </div>
         <section className={panelClass} aria-labelledby="accessibility-title"><h2 id="accessibility-title" className="font-heading text-2xl">Acessibilidade para você</h2><p className="mb-5 mt-3 text-sm leading-relaxed text-text-secondary">Estes ajustes se aplicam à área do responsável depois de salvar. Os perfis infantis têm suas próprias preferências.</p><div className="grid gap-3 xl:grid-cols-2"><PreferenceToggle name="highContrast" title="Maior contraste" description="Reforça textos secundários e bordas." defaultChecked={settings.accessibility.highContrast} /><PreferenceToggle name="largeText" title="Texto ampliado" description="Aumenta textos, campos e controles desta área." defaultChecked={settings.accessibility.largeText} /><PreferenceToggle name="reducedMotion" title="Reduzir movimentos" description="Desativa transições e animações desta área." defaultChecked={settings.accessibility.reducedMotion} /></div><p className="mt-5 text-xs text-text-secondary">Idioma: Português (Brasil). A preferência de redução de movimento do seu dispositivo também é respeitada.</p></section>
       </fieldset>
-      {error && <p role="alert" className="rounded-2xl border border-error bg-surface p-4 text-sm">{error}</p>}
-      <div className="flex flex-col gap-4 rounded-3xl border border-border bg-surface p-5 sm:flex-row sm:items-center sm:justify-between"><p role="status" aria-live="polite" className="text-sm leading-relaxed">{message || "Revise suas escolhas. As alterações serão aplicadas ao salvar."}</p><button type="submit" disabled={busy} className={`${buttonClass} shrink-0`}>{busy ? "Salvando…" : "Salvar configurações"}</button></div>
-    </form>
+      <div className="flex flex-col gap-4 rounded-3xl border border-border bg-surface p-5 sm:flex-row sm:items-center sm:justify-between"><p role="status" aria-live="polite" className="text-sm leading-relaxed">Demonstração local. As alterações não serão salvas.</p><button disabled type="button" className={`${buttonClass} shrink-0`}>Salvar configurações</button></div>
+    </div>
   </>;
 }

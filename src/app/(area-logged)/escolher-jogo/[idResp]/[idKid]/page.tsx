@@ -9,7 +9,7 @@ export default async function EscolherJogoPage({ params }: PageProps<"/escolher-
     <Heading title="O que vamos fazer hoje?" description="Escolha por onde quer começar." />
     <div className="grid gap-4 md:grid-cols-3">
       <ActivityCard art="chat" href={base + "/comunicacao"} title="Vamos Conversar" description="Escolha figuras para montar uma frase." />
-      <ActivityCard art="quick" href={base + "/rapidos"} title="Quick Games" description="Encontre uma brincadeira para agora." />
+      <ActivityCard art="quick" href={base + "/rapidos"} title="Quick Games" description="Combine as formas no Encaixe divertido." />
       <ActivityCard art="trail" href={base + "/trilha"} title="Minha Trilha" description="Explore palavras e números, uma fase por vez." />
     </div>
   </div>;

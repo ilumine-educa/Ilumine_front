@@ -7,7 +7,6 @@ import {
   IconUsers,
   IconHeartHandshake,
   IconArrowUpRight,
-  IconChevronRight,
 } from "@tabler/icons-react";
 
 import SectionHeader from "@/src/components/reusable/sectionHeader";

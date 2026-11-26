@@ -1,0 +1,15 @@
+.desktopLink[aria-current],
+.mobileLink[aria-current] {
+  color: light-dark(#0864ad, #85c5ff);
+}
+
+.desktopLink[aria-current]::after {
+  width: 100%;
+  background-color: currentColor;
+}
+
+.mobileLink[aria-current] {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.3em;
+}

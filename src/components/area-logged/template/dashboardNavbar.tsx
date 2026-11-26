@@ -5,6 +5,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 import LogoutButton from "./logoutButton";
+import { childContainer } from "../escolher-jogo/childUi";
 
 import ThemeSelector from "../../reusable/theme/themeSelector";
 
@@ -15,7 +16,7 @@ export default function DashboardNavbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-surface backdrop-blur-md">
-      <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-8">
+      <nav className={`flex h-20 items-center justify-between ${isGameSelection ? childContainer : "mx-auto max-w-7xl px-5 sm:px-8"}`}>
         {/* Logo */}
         <Link href="/">
           <Image

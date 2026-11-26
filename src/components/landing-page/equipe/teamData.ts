@@ -1,3 +1,11 @@
+import type { StaticImageData } from "next/image";
+import equipeProa from "@/public/images/equipe/EquipeProa.jpeg";
+import cauaGabriel from "@/public/images/equipe/CauaGabriel.jpeg";
+import caioLima from "@/public/images/equipe/CaioLima.jpeg";
+import brunoHenrique from "@/public/images/equipe/BrunoHenrique.png";
+import anaPaula from "@/public/images/equipe/AnaPaula.jpeg";
+import miguelCampos from "@/public/images/equipe/MiguelCampos.jpeg";
+import cauaBissoli from "@/public/images/equipe/CauaBissoli.jpeg";
 import type { TablerIcon } from "@tabler/icons-react";
 import {
   IconBrandGithub,
@@ -9,7 +17,7 @@ export type TeamMember = {
   name: string;
   roles: string[];
   description?: string;
-  photo?: { src: string; alt: string };
+  photo?: { src: StaticImageData; alt: string };
   socialLinks?: {
     label: string;
     href?: string;
@@ -17,17 +25,10 @@ export type TeamMember = {
   }[];
 };
 
-export type TeamPhotoProps = {
-  src?: string;
-  alt?: string;
+export const teamPhoto = {
+  src: equipeProa,
+  alt: "Integrantes da Ilumine.Educa reunidos no PROA",
 };
-
-export const teamPhoto: TeamPhotoProps[] = [
-  {
-    src: "/images/equipe/BrunoHenrique.png",
-    alt: "Equipe reunida",
-  },
-];
 
 export const teamMembers: TeamMember[] = [
   {
@@ -35,7 +36,7 @@ export const teamMembers: TeamMember[] = [
     name: "Cauã Gabriel",
     roles: ["Product Owner (PO)", "Desenvolvedor Back-end"],
     photo: {
-      src: "/images/equipe/CauaGabriel.jpeg",
+      src: cauaGabriel,
       alt: "Cauã Gabriel",
     },
     socialLinks: [
@@ -51,7 +52,7 @@ export const teamMembers: TeamMember[] = [
     name: "Caio Lima",
     roles: ["Scrum Master", "Desenvolvedor Front-end"],
     photo: {
-      src: "/images/equipe/CaioLima.jpg",
+      src: caioLima,
       alt: "Caio Lima",
     },
     socialLinks: [
@@ -67,7 +68,7 @@ export const teamMembers: TeamMember[] = [
     name: "Bruno Henrique",
     roles: ["Marketing", "Desenvolvedor Front-end"],
     photo: {
-      src: "/images/equipe/BrunoHenrique.png",
+      src: brunoHenrique,
       alt: "Bruno Henrique",
     },
     socialLinks: [
@@ -99,7 +100,7 @@ export const teamMembers: TeamMember[] = [
     name: "Ana Paula",
     roles: ["Documentarista", "Desenvolvedora Back-end"],
     photo: {
-      src: "/images/equipe/AnaPaula.jpeg",
+      src: anaPaula,
       alt: "Ana Paula",
     },
     socialLinks: [
@@ -115,7 +116,7 @@ export const teamMembers: TeamMember[] = [
     name: "Miguel Campos",
     roles: ["Marketing", "Desenvolvedor Back-end"],
     photo: {
-      src: "/images/equipe/MiguelCampos.jpeg",
+      src: miguelCampos,
       alt: "Miguel Campos",
     },
     socialLinks: [
@@ -131,7 +132,7 @@ export const teamMembers: TeamMember[] = [
     name: "Cauã Bissoli",
     roles: ["Desenvolvedor Back-end"],
     photo: {
-      src: "/images/equipe/CauaBissoli.jpeg",
+      src: cauaBissoli,
       alt: "Cauã Bissoli",
     },
   },

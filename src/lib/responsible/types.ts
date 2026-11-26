@@ -15,9 +15,3 @@ export type AccountSettings = {
 };
 
 export type PublicAccount = { id: number; name: string; email: string };
-
-export const defaultAccessibility = {
-  largeText: false,
-  highContrast: false,
-  reducedMotion: false,
-};

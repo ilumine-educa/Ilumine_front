@@ -16,7 +16,7 @@ type HeroProps = {
   visual?: ReactNode;
   align?: "left" | "center";
   fullHeight?: boolean;
-  wave?: boolean;
+  wave?: boolean | "right";
   decorations?: boolean;
   className?: string;
 };
@@ -280,7 +280,9 @@ export default function Hero({
           preserveAspectRatio="none"
           aria-hidden="true"
         >
-          <path d="M0 42C94 2 105 125 240 119H0Z" fill="var(--primary)" />
+          {wave !== "right" && (
+            <path d="M0 42C94 2 105 125 240 119H0Z" fill="var(--primary)" />
+          )}
           <path
             d="M620 120c128-101 212-17 359-35 205-24 265-97 461-74v109Z"
             fill="color-mix(in srgb, var(--decoration-blue) 55%, var(--surface))"

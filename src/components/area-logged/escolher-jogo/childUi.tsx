@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { IconArrowLeft } from "@tabler/icons-react";
 
-export const pageWidth = "mx-auto w-full max-w-[84rem] px-4 py-6 sm:px-8 lg:py-10";
+export const childContainer = "mx-auto w-full px-4 sm:px-6 lg:px-8 2xl:px-20";
+export const pageWidth = childContainer + " py-6 lg:py-10";
 export const panel = "rounded-3xl border border-border bg-surface p-5 sm:p-8";
 export const button = "inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-primary px-5 py-2 font-semibold text-text-inverse focus-visible:outline-offset-4";
 

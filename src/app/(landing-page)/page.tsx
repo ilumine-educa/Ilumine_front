@@ -47,7 +47,7 @@ export default function homePage() {
           min-[1921px]:[&_a]:py-[min(.625vw,1rem)]
           min-[1921px]:[&_a_svg]:size-[min(1.042vw,1.667rem)]
         `}
-        wave
+        wave="right"
         actions={[
           {
             label: "Comece agora",

@@ -1,3 +1,13 @@
+## Demonstração local da Ilumine.Educa
+
+Execute `npm run demo`, abra [a tela de login](http://127.0.0.1:3000/auth/login) e selecione **Entrar na demonstração local**. Se a porta estiver ocupada, use a indicada no terminal. A demonstração também funciona com `npm run dev`. Ambos iniciam o servidor na interface de loopback.
+
+A família e a criança exibidas são fictícias. Os formulários permitem explorar os campos. Os jogos aceitam respostas, e a primeira fase de cada disciplina pode ser concluída. Perfis, configurações e progresso não são gravados. Em produção, o login de demonstração fica indisponível e as rotas privadas redirecionam para o login.
+
+### Integração pendente
+
+Substitua a leitura da família de exemplo por dados autorizados da API. Conecte o login, o logout, a recuperação de conta, a criação e edição de crianças, as preferências, o histórico de atividades e o progresso por criança e disciplina. As decisões de autorização e conclusão persistida pertencem ao back-end.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started

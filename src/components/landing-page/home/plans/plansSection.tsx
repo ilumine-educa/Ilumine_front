@@ -71,7 +71,7 @@ export default function PlansSection() {
             </div>
             <p id="billing-description" className="mt-4 text-sm text-text-secondary" role="status" aria-atomic="true">
               {billingPeriod === "annual"
-                ? "Cobrança anual total, com 20% de desconto sobre 12 mensalidades. O plano Gratuito continua sem custo."
+                ? "Valores equivalentes por mês, com cobrança anual em parcela única."
                 : "Valores mensais. O plano Gratuito continua sem custo."}
             </p>
           </fieldset>
@@ -83,7 +83,6 @@ export default function PlansSection() {
             grid grid-cols-1 items-stretch
             gap-8 sm:grid-cols-2
             lg:grid-cols-3 lg:gap-7
-            lg:items-center
           "
         >
           {plans.map((plan, index) => (

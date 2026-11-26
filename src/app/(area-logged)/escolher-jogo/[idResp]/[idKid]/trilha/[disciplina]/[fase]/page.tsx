@@ -10,6 +10,6 @@ export default async function Play({ params }: PageProps<"/escolher-jogo/[idResp
   if (!disciplines[subject].phases[index] || String(index + 1) !== fase) notFound();
   const map = `/escolher-jogo/${idResp}/${idKid}/trilha/${subject}`;
   if (index > completed) redirect(map);
-  return <LessonGame key={map + fase} childId={child.id} map={map} subject={subject} phase={index}
+  return <LessonGame key={map + fase} map={map} subject={subject} phase={index}
     quiet={child.accessibility.reducedMotion} sound={child.preferences.sound} largeText={child.accessibility.largeText} />;
 }

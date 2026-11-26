@@ -5,7 +5,6 @@ import Link from "next/link";
 import {
   IconChevronDown,
   IconChevronRight,
-  IconSparkles,
   IconStar,
 } from "@tabler/icons-react";
 

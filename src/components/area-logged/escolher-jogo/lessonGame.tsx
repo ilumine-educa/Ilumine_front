@@ -1,10 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState, useTransition, useSyncExternalStore } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { IconApple, IconCheck, IconVolume } from "@tabler/icons-react";
 import { disciplines, solution, type Subject } from "@/src/lib/trilha/lessons";
-import { completePhase } from "@/src/lib/trilha/completePhase";
 import { Back, button, pageWidth, panel } from "./childUi";
 import WordPicture from "./wordPicture";
 
@@ -12,9 +11,9 @@ const subscribe = () => () => {};
 const hasSpeech = () => "speechSynthesis" in window && "SpeechSynthesisUtterance" in window;
 const choice = "min-h-14 min-w-16 rounded-xl border-2 border-border bg-surface px-4 py-2 text-2xl font-bold hover:border-primary focus-visible:outline-offset-4";
 
-type Props = { childId: string; map: string; subject: Subject; phase: number; quiet: boolean; sound: boolean; largeText: boolean };
+type Props = { map: string; subject: Subject; phase: number; quiet: boolean; sound: boolean; largeText: boolean };
 
-export default function LessonGame({ childId, map, subject, phase, quiet, sound, largeText }: Props) {
+export default function LessonGame({ map, subject, phase, quiet, sound, largeText }: Props) {
   const course = disciplines[subject];
   const challenges = course.phases[phase].challenges;
   const [answers, setAnswers] = useState<string[]>([]);
@@ -24,8 +23,7 @@ export default function LessonGame({ childId, map, subject, phase, quiet, sound,
   const [simple, setSimple] = useState(quiet);
   const [spoken, setSpoken] = useState(sound);
   const [correct, setCorrect] = useState("");
-  const [saved, setSaved] = useState(false);
-  const [pending, startTransition] = useTransition();
+  const [finished, setFinished] = useState(false);
   const canSpeak = useSyncExternalStore(subscribe, hasSpeech, () => false);
   const task = challenges[answers.length];
   const instruction = task.kind === "word" ? `Monte a palavra ${task.picture}. Toque nas sílabas em ordem.` : "Conte as maçãs. Escolha o número.";
@@ -54,15 +52,7 @@ export default function LessonGame({ childId, map, subject, phase, quiet, sound,
   function next() {
     const results = [...answers, correct];
     if (last) {
-      startTransition(async () => {
-        try {
-          if (await completePhase(childId, subject, phase, results)) {
-            setSaved(true);
-            return;
-          }
-        } catch { /* Permite repetir a gravação sem refazer a fase. */ }
-        setFeedback("Não foi possível salvar. Tente concluir novamente.");
-      });
+      setFinished(true);
     } else {
       setAnswers(results);
       setSelected([]);
@@ -77,10 +67,10 @@ export default function LessonGame({ childId, map, subject, phase, quiet, sound,
     <section className={panel + " mx-auto max-w-3xl text-center"}>
       <p className="font-semibold text-text-secondary">{course.name} · Fase {phase + 1}</p>
       <h1 className="mt-2 text-3xl sm:text-5xl">{course.game}</h1>
-      {saved ? <div role="status" className="mt-8 space-y-5">
+      {finished ? <div role="status" className="mt-8 space-y-5">
         <IconCheck aria-hidden className="mx-auto size-14 text-success" />
         <h2 className="text-3xl">Fase concluída!</h2>
-        <p>Seu progresso foi salvo.</p>
+        <p>Nesta demonstração, o progresso não é salvo.</p>
         <Link href={map} className={button}>Voltar ao mapa</Link>
       </div> : <>
         <div aria-live="polite" className="my-5">
@@ -113,7 +103,7 @@ export default function LessonGame({ childId, map, subject, phase, quiet, sound,
             task.options.map(value => <button key={value} className={choice} disabled={!!correct} onClick={() => check(String(value))}>{value}</button>)}
         </div>
         <p role="status" className="mt-4 min-h-7 font-semibold">{feedback}</p>
-        {correct && <button className={button + " mt-2"} onClick={next} disabled={pending}>{pending ? "Salvando…" : last ? "Concluir fase" : "Próximo desafio"}</button>}
+        {correct && <button className={button + " mt-2"} onClick={next}>{last ? "Concluir fase" : "Próximo desafio"}</button>}
         <div className="mt-5 flex flex-wrap items-center justify-center gap-4 border-t border-border pt-4">
           {canSpeak && spoken && <button onClick={repeat} className="inline-flex min-h-11 items-center gap-2 font-semibold"><IconVolume aria-hidden />Ouvir instrução</button>}
           <label className="inline-flex min-h-11 items-center gap-2"><input type="checkbox" checked={simple} onChange={e => setSimple(e.target.checked)} />Fundo simples</label>

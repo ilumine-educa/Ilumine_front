@@ -9,8 +9,14 @@ type PricingCardProps = {
 };
 
 export default function PricingCard({ plan, index, billingPeriod = "monthly" }: PricingCardProps) {
-  const price = billingPeriod === "annual" ? plan.annualPrice : plan.price;
-  const period = plan.period && (billingPeriod === "annual" ? "/ano" : plan.period);
+  const annual = billingPeriod === "annual";
+  const paid = plan.monthlyCents > 0;
+  const formatPrice = (cents: number) => (cents / 100).toLocaleString("pt-BR", {
+    minimumFractionDigits: cents % 100 ? 2 : 0,
+    maximumFractionDigits: 2,
+  });
+  const monthly = formatPrice(plan.monthlyCents);
+  const equivalent = formatPrice(plan.annualCents / 12);
 
   return (
     <article
@@ -19,14 +25,14 @@ export default function PricingCard({ plan, index, billingPeriod = "monthly" }: 
       data-home-delay={index}
       className={`
         group relative flex h-full min-w-0 flex-col
-        lg:min-h-[32.5rem]
+        motion-reduce:transition-none
         rounded-3xl border p-6
         transition-all duration-300
         hover:-translate-y-2 hover:shadow-xl
         sm:p-8
         ${
           plan.featured
-            ? "z-10 border-primary bg-surface shadow-xl shadow-primary/10 lg:scale-[1.04]"
+            ? "z-10 border-primary bg-surface shadow-xl shadow-primary/10"
             : "border-border bg-surface shadow-sm hover:border-primary-light"
         }
       `}
@@ -50,7 +56,7 @@ export default function PricingCard({ plan, index, billingPeriod = "monthly" }: 
       )}
 
       {/* Cabeçalho */}
-      <div className="pt-19 text-center">
+      <div className="pt-2 text-center">
 
         <h3 className="font-heading text-2xl font-semibold text-text-primary">
           {plan.name}
@@ -61,23 +67,24 @@ export default function PricingCard({ plan, index, billingPeriod = "monthly" }: 
         </p>
 
         {/* Preço */}
-        <div className="mt-7 flex flex-wrap items-baseline justify-center gap-1 text-primary tabular-nums">
+        <p className="sr-only">R$ {annual ? equivalent : monthly}{paid && " por mês"}</p>
+        <div aria-hidden="true" className="mt-5 flex items-end justify-center gap-1 text-primary tabular-nums">
           <span className="text-xl font-medium">R$</span>
-
-          <span className="text-5xl font-bold tracking-tight">
-            {price}
-          </span>
-
-          {period && (
-            <span className="text-sm font-medium text-text-secondary">
-              {period}
+          <span className="block h-[1.1em] overflow-hidden text-5xl font-bold leading-[1.1] tracking-tight">
+            <span className={`grid motion-safe:transition-transform motion-safe:duration-300 ${annual && paid ? "-translate-y-1/2" : ""}`}>
+              <span>{monthly}</span>
+              <span>{equivalent}</span>
             </span>
-          )}
+          </span>
+          {paid && <span className="text-sm font-medium text-text-secondary">/mês</span>}
         </div>
+        {annual && <p className="mt-2 text-sm text-text-secondary">
+          {paid ? `R$ ${formatPrice(plan.annualCents)} cobrados anualmente` : "Sem cobrança anual"}
+        </p>}
       </div>
 
       {/* Benefícios */}
-      <div className="my-8 flex-1 border-t border-border pt-7">
+      <div className="my-6 flex-1 border-t border-border pt-5">
         <h4 className="mb-5 text-sm font-semibold text-text-primary">
           O que está incluído:
         </h4>

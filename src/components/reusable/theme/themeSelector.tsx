@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 
 import {
   IconPalette,
@@ -35,29 +35,31 @@ const themes = [
   },
 ];
 
+function readTheme(): Theme {
+  const saved = localStorage.getItem("ilumine-theme");
+  return saved === "warm" || saved === "dark" ? saved : "cold";
+}
+
+function subscribe(listener: () => void) {
+  window.addEventListener("storage", listener);
+  window.addEventListener("ilumine-theme-change", listener);
+  return () => {
+    window.removeEventListener("storage", listener);
+    window.removeEventListener("ilumine-theme-change", listener);
+  };
+}
+
 export default function ThemeSelector() {
-  const [theme, setTheme] = useState<Theme>("cold");
+  const theme = useSyncExternalStore(subscribe, readTheme, () => "cold");
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("ilumine-theme");
-
-    const validThemes: Theme[] = ["cold", "warm", "dark"];
-
-    const initialTheme =
-      savedTheme && validThemes.includes(savedTheme as Theme)
-        ? (savedTheme as Theme)
-        : "cold";
-
-    setTheme(initialTheme);
-    document.documentElement.setAttribute("data-theme", initialTheme);
-  }, []);
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
 
   function handleThemeChange(newTheme: Theme) {
-    setTheme(newTheme);
-
-    document.documentElement.setAttribute("data-theme", newTheme);
     localStorage.setItem("ilumine-theme", newTheme);
+    window.dispatchEvent(new Event("ilumine-theme-change"));
 
     setOpen(false);
   }

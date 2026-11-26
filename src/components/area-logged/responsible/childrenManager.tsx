@@ -1,63 +1,35 @@
 "use client";
 
-import { useRef, useState, type FormEvent } from "react";
-import { useRouter } from "next/navigation";
+import { useRef, useState } from "react";
 import Link from "next/link";
 import { IconPlus, IconPencil, IconHeart, IconAdjustments, IconAccessible, IconUsers } from "@tabler/icons-react";
-import { defaultAccessibility, type ChildProfile } from "@/src/lib/responsible/types";
+import type { ChildProfile } from "@/src/lib/responsible/types";
 import { PageHeading, PreferenceToggle, buttonClass, inputClass, panelClass } from "./dashboardUi";
 
 export default function ChildrenManager({ profiles: children, responsibleId, createInitially }: { profiles: ChildProfile[]; responsibleId: number; createInitially: boolean }) {
-  const router = useRouter();
   const [editing, setEditing] = useState<ChildProfile | "new" | null>(createInitially ? "new" : null);
-  const [busy, setBusy] = useState(false);
-  const [error, setError] = useState("");
-  const [message, setMessage] = useState("");
   const formHeading = useRef<HTMLHeadingElement>(null);
   const addButton = useRef<HTMLButtonElement>(null);
   const profile = editing && editing !== "new" ? editing : undefined;
 
   function open(profile: ChildProfile | "new") {
-    setEditing(profile); setError(""); setMessage("");
+    setEditing(profile);
     // O formulário fica na própria página, com foco no título ao abrir.
     requestAnimationFrame(() => formHeading.current?.focus());
   }
 
   function close() {
-    setEditing(null); setError("");
+    setEditing(null);
     addButton.current?.focus();
-  }
-
-  async function save(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const form = new FormData(event.currentTarget);
-    const payload = {
-      ...(profile ? { id: profile.id } : {}),
-      name: form.get("name"), age: Number(form.get("age")),
-      interests: String(form.get("interests") || "").split(",").map((item) => item.trim()).filter(Boolean),
-      preferences: { sound: form.has("sound"), pace: form.get("pace") },
-      accessibility: { largeText: form.has("largeText"), highContrast: form.has("highContrast"), reducedMotion: form.has("reducedMotion") },
-    };
-    setBusy(true); setError(""); setMessage("");
-    try {
-      const response = await fetch("/api/responsavel/filhos", { method: profile ? "PUT" : "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.message || "Não foi possível salvar o perfil.");
-      setMessage(profile ? "Perfil atualizado." : "Criança adicionada à sua família.");
-      close();
-      router.refresh();
-    } catch (error) { setError(error instanceof Error ? error.message : "Falha de conexão. Tente novamente."); }
-    finally { setBusy(false); }
   }
 
   return <>
     <PageHeading title="Filhos" description="Conheça e personalize o espaço de cada criança. Diferentes interesses, diferentes jeitos de aprender." action={<button ref={addButton} type="button" className={`${buttonClass} shrink-0 self-start`} onClick={() => open("new")}><IconPlus className="size-5" aria-hidden="true" />Adicionar criança</button>} />
-    <div role="status" aria-live="polite" className={message ? "rounded-2xl border border-success/30 bg-success/10 p-4 text-sm" : "sr-only"}>{message}</div>
     {editing && <section className={panelClass} aria-labelledby="child-form-title">
       <h2 id="child-form-title" ref={formHeading} tabIndex={-1} className="font-heading text-2xl outline-none">{profile ? `Editar perfil de ${profile.name}` : "Um novo perfil para sua família"}</h2>
       <p className="mt-2 text-sm text-text-secondary">Preencha apenas o necessário. Interesses e apoios são opcionais.</p>
-      <form key={profile?.id ?? "new"} onSubmit={save} className="mt-6 space-y-6">
-        <fieldset disabled={busy} className="space-y-6 disabled:opacity-60">
+      <div key={profile?.id ?? "new"} className="mt-6 space-y-6">
+        <fieldset className="space-y-6 disabled:opacity-60">
           <legend className="sr-only">Informações da criança</legend>
           <div className="grid gap-5 sm:grid-cols-[2fr_1fr]">
             <label className="text-sm font-medium">Nome da criança<input autoComplete="off" name="name" required maxLength={80} defaultValue={profile?.name ?? ""} className={inputClass} /></label>
@@ -66,15 +38,15 @@ export default function ChildrenManager({ profiles: children, responsibleId, cre
           <label className="block text-sm font-medium">Interesses<input name="interests" maxLength={409} defaultValue={profile?.interests.join(", ") ?? ""} placeholder="Separe os interesses por vírgulas" aria-describedby="interests-hint" className={inputClass} /><span id="interests-hint" className="mt-2 block text-xs font-normal text-text-secondary">Até 10 interesses, com até 40 caracteres cada.</span></label>
           <fieldset className="space-y-3"><legend className="mb-3 font-heading text-xl">Preferências individuais</legend><PreferenceToggle name="sound" title="Áudio nas atividades" description="Preferência por atividades com apoio sonoro." defaultChecked={profile?.preferences.sound ?? true} /><label className="block text-sm font-medium">Ritmo preferido<select name="pace" defaultValue={profile?.preferences.pace ?? "livre"} className={inputClass}><option value="livre">Livre, no próprio ritmo</option><option value="pausado">Com pausas entre as etapas</option></select></label></fieldset>
           <fieldset className="space-y-3"><legend className="mb-3 font-heading text-xl">Apoios de acessibilidade</legend>
-            <PreferenceToggle name="largeText" title="Texto ampliado" description="Preferência por letras maiores." defaultChecked={profile?.accessibility.largeText ?? defaultAccessibility.largeText} />
-            <PreferenceToggle name="highContrast" title="Maior contraste" description="Preferência por elementos mais destacados." defaultChecked={profile?.accessibility.highContrast ?? defaultAccessibility.highContrast} />
-            <PreferenceToggle name="reducedMotion" title="Menos movimento" description="Preferência por menos animações e estímulos visuais." defaultChecked={profile?.accessibility.reducedMotion ?? defaultAccessibility.reducedMotion} />
+            <PreferenceToggle name="largeText" title="Texto ampliado" description="Preferência por letras maiores." defaultChecked={profile?.accessibility.largeText ?? false} />
+            <PreferenceToggle name="highContrast" title="Maior contraste" description="Preferência por elementos mais destacados." defaultChecked={profile?.accessibility.highContrast ?? false} />
+            <PreferenceToggle name="reducedMotion" title="Menos movimento" description="Preferência por menos animações e estímulos visuais." defaultChecked={profile?.accessibility.reducedMotion ?? false} />
           </fieldset>
           <p className="rounded-2xl bg-primary-light/20 p-4 text-xs leading-relaxed text-text-secondary">Estas escolhas ficam salvas somente neste perfil. A aplicação automática das preferências e dos apoios nos jogos ainda está em desenvolvimento.</p>
         </fieldset>
-        {error && <p role="alert" className="rounded-xl border border-error p-4 text-sm">{error}</p>}
-        <div className="flex flex-wrap gap-3"><button disabled={busy} className={buttonClass} type="submit">{busy ? "Salvando…" : "Salvar perfil"}</button><button disabled={busy} type="button" onClick={close} className="min-h-11 rounded-xl border border-border px-5 py-3 text-sm font-medium hover:bg-background">Cancelar</button></div>
-      </form>
+        <p className="text-sm text-text-secondary">Demonstração local. Os perfis não serão salvos.</p>
+        <div className="flex flex-wrap gap-3"><button className={buttonClass} type="button" disabled>Salvar perfil</button><button type="button" onClick={close} className="min-h-11 rounded-xl border border-border px-5 py-3 text-sm font-medium hover:bg-background">Cancelar</button></div>
+      </div>
     </section>}
     <div className="flex items-start gap-3 rounded-2xl bg-primary-light/20 p-5"><IconUsers className="size-6 shrink-0 text-primary" aria-hidden="true" /><p className="text-sm leading-relaxed"><strong>Cada criança, uma experiência.</strong> As escolhas de um perfil não alteram os demais.</p></div>
     <section aria-labelledby="family-title">

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { IconBrandGithub, IconBrandLinkedin } from "@tabler/icons-react";
 import type { TeamMember } from "./teamData";
 import Link from "next/link";
 
