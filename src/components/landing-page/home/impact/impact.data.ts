@@ -20,7 +20,7 @@ export const impacts: Impact[] = [
     description:
       "Acompanhe o desenvolvimento dos alunos, identifique necessidades e tenha mais clareza sobre cada jornada de aprendizagem.",
     icon: IconSchool,
-    color: "bg-secondary-light text-secondary",
+    color: "bg-secondary-light text-secondary-ink",
     decoration: "bg-secondary/10",
   },
   {
@@ -30,7 +30,7 @@ export const impacts: Impact[] = [
     description:
       "Acompanhe a evolução da criança, conheça suas necessidades e participe de uma jornada de aprendizagem mais inclusiva e acolhedora.",
     icon: IconUsers,
-    color: "bg-secondary-light text-secondary",
+    color: "bg-secondary-light text-secondary-ink",
     decoration: "bg-secondary/10",
   },
 

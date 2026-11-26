@@ -9,9 +9,7 @@ export default function SolutionSection() {
       id="solucao"
       className="
         relative isolate overflow-hidden
-        bg-background px-4 py-20
-        sm:px-6 sm:py-24
-        lg:px-12 lg:py-32
+        bg-background py-[clamp(4rem,7vw,10rem)]
       "
     >
       {/* Decoração superior */}
@@ -25,8 +23,6 @@ export default function SolutionSection() {
         preserveAspectRatio="none"
         aria-hidden="true"
       >
-        <path d="M0 42C94 2 105 125 240 119H0Z" fill="var(--primary)" />
-
         <path
           d="M620 120c128-101 212-17 359-35 205-24 265-97 461-74v109Z"
           fill="color-mix(in srgb, var(--decoration-blue) 55%, var(--surface))"
@@ -41,10 +37,11 @@ export default function SolutionSection() {
       {/* Conteúdo */}
       <div
         className="
-          mx-auto grid max-w-7xl
-          items-center gap-16
+          mx-auto grid w-full max-w-[100rem]
+          items-center gap-10 px-4 sm:px-8 lg:px-12
+          min-[1921px]:max-w-[min(83.333vw,133.333rem)]
+          min-[1921px]:px-[min(2.5vw,4rem)]
           lg:grid-cols-[0.9fr_1.1fr]
-          lg:gap-10
         "
       >
         {/* Conteúdo textual */}

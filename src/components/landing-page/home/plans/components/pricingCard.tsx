@@ -46,7 +46,7 @@ export default function PricingCard({ plan, index, billingPeriod = "monthly" }: 
             items-center gap-1.5
             whitespace-nowrap rounded-full
             bg-primary px-5 py-2
-            text-xs font-semibold text-white
+            text-xs font-semibold text-text-inverse
             shadow-md shadow-primary/20
           "
         >
@@ -127,7 +127,7 @@ export default function PricingCard({ plan, index, billingPeriod = "monthly" }: 
           text-sm font-semibold
           ${
             plan.featured
-              ? "bg-primary text-white"
+              ? "bg-primary text-text-inverse"
               : "border border-primary/20 bg-primary-light/40 text-primary"
           }
         `}

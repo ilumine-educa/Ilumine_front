@@ -62,11 +62,11 @@ export default function ProfileCard({
       <div className="relative z-10 flex flex-col justify-between gap-6 sm:flex-row sm:items-center">
         <div className="flex flex-1 items-start gap-4">
           <div className="max-w-md">
-            <h2 className="font-heading text-3xl font-bold text-white">
+            <h2 className="font-heading text-3xl font-bold text-text-inverse">
               {title}
             </h2>
 
-            <p className="mt-2 text-sm leading-relaxed text-white">
+            <p className="mt-2 text-sm leading-relaxed text-text-inverse">
               {description}
             </p>
           </div>
@@ -85,7 +85,7 @@ export default function ProfileCard({
                 className="
                   w-full cursor-pointer appearance-none rounded-2xl
                   border border-border bg-surface px-4 py-4 pr-12
-                  text-sm font-medium text-text-primary outline-none
+                  text-sm font-medium text-text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-text-inverse
                   transition-all
                 "
               >
@@ -114,7 +114,7 @@ export default function ProfileCard({
         {/* Indicador de navegação */}
         <IconChevronRight
           size={100}
-          className={`hidden shrink-0 text-white/15 transition-transform group-hover:translate-x-5 xl:block`}
+          className={`hidden shrink-0 text-text-inverse/60 transition-transform group-sm:hover:translate-x-2 xl:block`}
         />
       </div>
     </>
@@ -124,7 +124,7 @@ export default function ProfileCard({
     group relative isolate block overflow-hidden rounded-4xl
     border border-border bg-primary p-6 shadow-sm
     transition-all duration-300
-    hover:translate-x-5 hover:shadow-md
+    sm:hover:translate-x-2 hover:shadow-md
     sm:p-8
     ${onClick || href ? "cursor-pointer" : ""}
     ${className}

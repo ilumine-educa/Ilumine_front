@@ -19,7 +19,7 @@ export const benefits: Benefit[] = [
     title: "Acompanhamento da evolução",
     description:
       "Acompanhe o desenvolvimento da criança, identifique conquistas e descubra quais habilidades precisam de mais atenção.",
-    color: "bg-secondary-light text-secondary",
+    color: "bg-secondary-light text-secondary-ink",
   },
   {
     icon: IconPuzzle,

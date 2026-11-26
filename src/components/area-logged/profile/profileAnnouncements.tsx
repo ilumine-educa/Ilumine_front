@@ -1,3 +1,4 @@
+import { officialSocialLinks } from "../../landing-page/socialLinks";
 import Link from "next/link";
 
 import {
@@ -14,7 +15,7 @@ const announcements = [
     title: "Siga nossas redes!",
     description:
       "Fique por dentro de dicas, novidades e conteúdos sobre aprendizagem infantil.",
-    link: "https://www.instagram.com/",
+    link: officialSocialLinks.instagram.href,
     linkLabel: "Conhecer Instagram",
     icon: IconBrandInstagram,
     color: "bg-primary-light text-primary",
@@ -59,7 +60,7 @@ export default function ProfileAnnouncements() {
         imageAlt="Pai sorrindo com sua filha"
         backgroundColor="bg-surface"
         titleColor="text-text-primary"
-        descriptionColor="text-text-secondary/85"
+        descriptionColor="text-text-secondary"
         decorationColor="text-decoration-blue/30"
         minHeight=""
         imageClassName="-rotate-30 right-0 -top-9 md:rotate-0 md:left-0 md:top-72 "
@@ -108,7 +109,7 @@ export default function ProfileAnnouncements() {
                     className="
                 inline-flex items-center gap-2
                 text-sm font-semibold text-primary
-                transition-colors hover:text-secondary
+                transition-colors hover:text-primary-hover hover:underline
               "
                   >
                     {announcement.linkLabel}

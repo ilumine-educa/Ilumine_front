@@ -431,7 +431,7 @@ export default function termosUsoPrivacidadePage() {
                     </p>
                     <Link
                       href="/contato/"
-                      className="mt-2 inline-flex items-center gap-2 font-semibold text-primary transition-colors hover:text-secondary"
+                      className="mt-2 inline-flex items-center gap-2 font-semibold text-primary transition-colors hover:text-secondary-ink hover:underline"
                     >
                       Entrar em contato
                       <IconArrowUpRight size={17} />

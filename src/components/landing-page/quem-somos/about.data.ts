@@ -24,7 +24,7 @@ export const values: AboutValue[] = [
     title: "Personalização",
     description:
       "Cada criança tem seu próprio ritmo. Por isso, valorizamos experiências que consideram suas necessidades.",
-    color: "bg-secondary-light text-secondary",
+    color: "bg-secondary-light text-secondary-ink",
   },
   {
     icon: IconBulb,
@@ -38,7 +38,7 @@ export const values: AboutValue[] = [
     title: "Acolhimento",
     description:
       "Valorizamos o papel de famílias e educadores na construção de uma jornada de aprendizagem positiva.",
-    color: "bg-secondary-light text-secondary",
+    color: "bg-secondary-light text-secondary-ink",
   },
 ];
 

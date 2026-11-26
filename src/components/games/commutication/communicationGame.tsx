@@ -183,7 +183,7 @@ export default function CommunicationGame() {
               onClick={() => setCategory("todas")}
               className={`rounded-full px-5 py-3 text-sm font-semibold transition ${
                 category === "todas"
-                  ? "bg-primary text-white"
+                  ? "bg-primary text-text-inverse"
                   : "border border-border bg-surface text-text-secondary hover:bg-surface-secondary"
               }`}
             >
@@ -197,7 +197,7 @@ export default function CommunicationGame() {
                 onClick={() => setCategory(item.id)}
                 className={`flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition ${
                   category === item.id
-                    ? "bg-primary text-white"
+                    ? "bg-primary text-text-inverse"
                     : "border border-border bg-surface text-text-secondary hover:bg-surface-secondary"
                 }`}
               >

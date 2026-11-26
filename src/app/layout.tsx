@@ -2,6 +2,7 @@
 import type { Metadata } from "next";
 import { Fredoka, Poppins } from "next/font/google";
 import "./globals.css";
+import { ThemeSync } from "../components/reusable/theme/themeSelector";
 import VLibras from "../components/accessibility/vLibras";
 
 const fredoka = Fredoka({
@@ -31,6 +32,7 @@ export default function RootLayout({
       className={`${fredoka.variable} ${poppins.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
+        <ThemeSync />
         {children}
         <VLibras/>
       </body>

@@ -24,7 +24,7 @@ export const contactOptions: ContactOption[] = [
     description: "Precisa de ajuda com a plataforma? Fale com a gente.",
     action: "Solicitar suporte",
     href: "mailto:suporte@seudominio.com",
-    color: "bg-secondary-light text-secondary",
+    color: "bg-secondary-light text-secondary-ink",
   },
   {
     icon: IconUsers,

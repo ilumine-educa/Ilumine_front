@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 import { IconChartBar, IconUsers, IconSettings, IconArrowLeft, IconHeart } from "@tabler/icons-react";
 import type { AccountSettings, PublicAccount } from "@/src/lib/responsible/types";
+import { dashboardContainer } from "./dashboardUi";
 import styles from "./dashboardShell.module.css";
 
 export default function DashboardShell({ account, accessibility, children }: { account: PublicAccount; accessibility: AccountSettings["accessibility"]; children: ReactNode }) {
@@ -15,10 +16,10 @@ export default function DashboardShell({ account, accessibility, children }: { a
     { href: `${base}/filhos`, label: "Filhos", icon: IconUsers },
     { href: `${base}/configuracoes`, label: "Configurações", icon: IconSettings },
   ];
-  return <div className={`${styles.shell} mx-auto max-w-[96rem] px-4 py-6 text-text-primary sm:px-8 sm:py-8 lg:px-10`} data-high-contrast={accessibility.highContrast} data-large-text={accessibility.largeText} data-reduced-motion={accessibility.reducedMotion}>
+  return <div className={`${styles.shell} ${dashboardContainer} py-4 text-text-primary sm:py-5`} data-high-contrast={accessibility.highContrast} data-large-text={accessibility.largeText} data-reduced-motion={accessibility.reducedMotion}>
     <a href="#painel-responsavel" className="sr-only focus:not-sr-only focus:inline-block focus:rounded-xl focus:bg-surface focus:p-3">Pular para o conteúdo</a>
     <div className="grid min-w-0 gap-6 lg:grid-cols-[15rem_minmax(0,1fr)] lg:gap-8">
-      <aside className="min-w-0 lg:sticky lg:top-28 lg:self-start">
+      <aside className="min-w-0 lg:sticky lg:top-20 lg:self-start">
         <div className="rounded-3xl border border-border bg-surface p-4 shadow-sm lg:p-5">
           <div className="mb-5 hidden items-center gap-3 lg:flex">
             <span aria-hidden="true" className="flex size-11 shrink-0 items-center justify-center rounded-2xl bg-primary-light/40 font-heading text-xl text-primary">{account.name.trim().charAt(0)}</span>
@@ -31,7 +32,7 @@ export default function DashboardShell({ account, accessibility, children }: { a
         </div>
         <div className="mt-5 hidden rounded-3xl bg-primary-light/20 p-5 lg:block"><IconHeart className="mb-3 size-6 text-primary" aria-hidden="true" /><p className="font-heading text-lg">Cada descoberta importa.</p><p className="mt-2 text-xs leading-relaxed text-text-secondary">Acompanhe com carinho, respeitando o ritmo e as escolhas de cada criança.</p></div>
       </aside>
-      <div id="painel-responsavel" tabIndex={-1} className="min-w-0 space-y-7 outline-none">
+      <div id="painel-responsavel" tabIndex={-1} className="min-w-0 space-y-4 outline-none">
         {children}
         <footer className="pb-2 pt-3 text-xs text-text-secondary">Ilumine.Educa · Aprender, acolher e acompanhar.</footer>
       </div>

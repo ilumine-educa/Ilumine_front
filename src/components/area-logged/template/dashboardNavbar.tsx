@@ -4,6 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
+import { dashboardContainer } from "../responsible/dashboardUi";
+import { profileContainer } from "../profile/profileLayout";
 import LogoutButton from "./logoutButton";
 import { childContainer } from "../escolher-jogo/childUi";
 
@@ -14,9 +16,12 @@ export default function DashboardNavbar() {
 
   const isGameSelection = pathname.split("/").includes("escolher-jogo");
 
+  const isDashboard = pathname.startsWith("/dashboard/");
+  const container = isDashboard ? dashboardContainer : isGameSelection ? childContainer : profileContainer;
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-surface backdrop-blur-md">
-      <nav className={`flex h-20 items-center justify-between ${isGameSelection ? childContainer : "mx-auto max-w-7xl px-5 sm:px-8"}`}>
+      <nav className={`flex items-center justify-between ${container} ${isDashboard ? "h-16" : "h-20"}`}>
         {/* Logo */}
         <Link href="/">
           <Image
@@ -25,13 +30,13 @@ export default function DashboardNavbar() {
             width={160}
             height={55}
             priority
-            className="h-auto w-28 sm:w-36 lg:w-44"
+            className="brand-logo h-auto w-28 sm:w-36 lg:w-44"
           />
         </Link>
 
         {/* Ações */}
-        <div className="flex items-center gap-3">
-          <ThemeSelector />
+        <div className="relative flex items-center gap-3">
+          <ThemeSelector floating />
 
           {!isGameSelection && (
             <LogoutButton />

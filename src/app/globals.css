@@ -14,6 +14,9 @@
   --foreground: #1e293b;
 
   --primary: #0872ce;
+  --panel: var(--primary);
+  --on-secondary: #201a14;
+  --secondary-ink: #984800;
   --primary-hover: #065da9;
   --primary-light: #bbd9f5;
 
@@ -27,8 +30,8 @@
 
   /* Textos */
   --text-primary: #102b50;
-  --text-secondary: #64758b;
-  --text-muted: #94a3b8;
+  --text-secondary: #54677f;
+  --text-muted: #576a81;
   --text-inverse: #ffffff;
 
   /* Bordas */
@@ -62,7 +65,8 @@
   --background: #faf6f0;
   --foreground: #3d3028;
 
-  --primary: #a66b45;
+  --primary: #985f3d;
+  --secondary-ink: #79542b;
   --primary-hover: #895638;
   --primary-light: #ecd5c1;
 
@@ -76,8 +80,8 @@
 
   /* Textos */
   --text-primary: #50392d;
-  --text-secondary: #806e60;
-  --text-muted: #aa9888;
+  --text-secondary: #716052;
+  --text-muted: #746457;
   --text-inverse: #ffffff;
 
   /* Bordas */
@@ -112,12 +116,14 @@
   --foreground: #e6edf6;
 
   --primary: #4197e5;
+  --panel: var(--primary-light);
+  --secondary-ink: var(--secondary);
   --primary-hover: #69b0f0;
   --primary-light: #294b6c;
 
   --secondary: #ff8702;
   --secondary-hover: #e87500;
-  --secondary-light: #ffe0ba;
+  --secondary-light: #493525;
 
   /* Superfícies */
   --surface: #1e2939;
@@ -174,6 +180,9 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
+  --color-panel: var(--panel);
+  --color-on-secondary: var(--on-secondary);
+  --color-secondary-ink: var(--secondary-ink);
   --color-primary: var(--primary);
   --color-primary-hover: var(--primary-hover);
   --color-primary-light: var(--primary-light);
@@ -215,6 +224,10 @@
 /* ========================================
    RESET E CONFIGURAÇÕES GLOBAIS
 ======================================== */
+
+[data-theme="dark"] .brand-logo {
+  filter: brightness(0) invert(1);
+}
 
 @layer base {
   * {

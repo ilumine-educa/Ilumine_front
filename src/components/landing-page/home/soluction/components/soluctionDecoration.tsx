@@ -136,8 +136,7 @@ export default function SoluctionDecoration() {
       <div
         className="
           relative mx-auto
-          h-97.5 w-full
-          sm:h-125
+          aspect-[672/500] w-full
           [perspective:1400px]
         "
       >
@@ -171,8 +170,8 @@ export default function SoluctionDecoration() {
             "
           >
             <Image
-              src="/images/ilumine-dashboard.png"
-              alt="Painel de acompanhamento do Ilumine Educa"
+              src="/images/monitoramento.webp"
+              alt="Monitoramento do responsável com indicadores e rotina semanal"
               fill
               priority
               sizes="(min-width: 1921px) min(26.042vw, 667px), (max-width: 768px) 70vw, 500px"
@@ -212,8 +211,8 @@ export default function SoluctionDecoration() {
             "
           >
             <Image
-              src="/images/ilumine-mobile.png"
-              alt="Experiência interativa do Ilumine Educa"
+              src="/images/minha-trilha.webp"
+              alt="Minha Trilha de Português com o jogo Monte a Palavra"
               fill
               sizes="(min-width: 1921px) min(13.021vw, 334px), (max-width: 768px) 40vw, 250px"
               className="object-cover object-top"

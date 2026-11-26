@@ -5,17 +5,6 @@ export default function CallToActionDecoration() {
       className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
       aria-hidden="true"
     >
-      {/* Pequeno brilho - região superior central */}
-      <svg
-        className="absolute left-[48%] top-[5%] h-7 w-7 text-secondary opacity-50"
-        viewBox="0 0 40 40"
-        fill="none"
-      >
-        <path
-          d="M20 2L24 16L38 20L24 24L20 38L16 24L2 20L16 16Z"
-          fill="currentColor"
-        />
-      </svg>
       {/* Brilho difuso - superior esquerdo */}
       <div
         className="

@@ -49,13 +49,19 @@ function subscribe(listener: () => void) {
   };
 }
 
-export default function ThemeSelector() {
+export function ThemeSync() {
   const theme = useSyncExternalStore(subscribe, readTheme, () => "cold");
-  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
+
+  return null;
+}
+
+export default function ThemeSelector({ floating = false }: { floating?: boolean }) {
+  const theme = useSyncExternalStore(subscribe, readTheme, () => "cold");
+  const [open, setOpen] = useState(false);
 
   function handleThemeChange(newTheme: Theme) {
     localStorage.setItem("ilumine-theme", newTheme);
@@ -65,7 +71,7 @@ export default function ThemeSelector() {
   }
 
   return (
-    <div className="relative">
+    <div className={floating ? "static" : "relative"}>
       {/* Botão do seletor */}
       <button
         type="button"
@@ -98,18 +104,18 @@ export default function ThemeSelector() {
       {/* Menu de temas */}
       <div
         className={`
-          z-[60] w-full
+          z-[60]
           rounded-2xl border border-border
           bg-surface p-2 shadow-lg
           transition-all duration-200
 
-          xl:absolute xl:right-0 xl:top-full
+          ${floating ? "absolute right-0 top-full w-60" : "w-full xl:absolute xl:right-0 xl:top-full"}
           xl:mt-3 xl:w-64
 
           ${
             open
               ? "visible mt-3 translate-y-0 opacity-100"
-              : "invisible h-0 translate-y-2 overflow-hidden opacity-0 xl:h-auto"
+              : "invisible absolute h-0 translate-y-2 overflow-hidden opacity-0 xl:h-auto"
           }
         `}
       >
@@ -151,7 +157,7 @@ export default function ThemeSelector() {
                     justify-center rounded-xl
                     ${
                       active
-                        ? "bg-primary text-white"
+                        ? "bg-primary text-text-inverse"
                         : "bg-surface-secondary text-text-secondary"
                     }
                   `}

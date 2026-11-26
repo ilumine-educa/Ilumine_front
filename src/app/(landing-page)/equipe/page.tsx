@@ -57,7 +57,7 @@ export default function TeamPage() {
                 educação."
             primaryAction={{
               label: "Conheça-nos",
-              href: "/quem-somos",
+              href: "/sobre",
             }}
             size="compact"
             layout="horizontal"

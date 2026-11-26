@@ -1,3 +1,4 @@
+import { officialSocialLinks } from "@/src/components/landing-page/socialLinks";
 import ContactOptions from "@/src/components/landing-page/contato/components/contactOptions";
 import ContactEmail from "@/src/components/landing-page/contato/components/contactEmail";
 import CallToAction from "@/src/components/reusable/cta/callToAction";
@@ -33,14 +34,8 @@ export default function contatoPage() {
             title="Acompanhe o Ilumine"
             highlight="nas redes sociais!"
             description="Fique por dentro das novidades, dos projetos e de tudo que estamos construindo para transformar a aprendizagem."
-            primaryAction={{
-              label: "Instagram",
-              href: "https://www.instagram.com/SEU_USUARIO/",
-            }}
-            secondaryAction={{
-              label: "LinkedIn",
-              href: "https://www.linkedin.com/company/SEU_USUARIO/",
-            }}
+            primaryAction={officialSocialLinks.instagram}
+            secondaryAction={officialSocialLinks.linkedin}
             className="mt-20"
           />
         </div>

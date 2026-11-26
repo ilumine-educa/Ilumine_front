@@ -13,7 +13,7 @@ export default function AuthLayout({
       <div className="grid min-h-screen lg:grid-cols-2">
 
         {/* Painel de apresentação */}
-        <section className="relative hidden overflow-hidden rounded-r-4xl bg-primary p-12 text-white lg:flex lg:flex-col lg:justify-between xl:p-16">
+        <section className="relative hidden overflow-hidden rounded-r-4xl bg-panel p-12 text-white lg:flex lg:flex-col lg:justify-between xl:p-16">
 
           {/* Decoração */}
           <div className="pointer-events-none absolute -right-32 -top-32 size-96 rounded-full border-50 border-white/5" />
@@ -37,13 +37,13 @@ export default function AuthLayout({
               Cada criança aprende de um jeito.
             </h1>
 
-            <p className="mt-6 max-w-md text-base leading-relaxed text-white/80 xl:text-lg">
+            <p className="mt-6 max-w-md text-base leading-relaxed text-white xl:text-lg">
               Uma jornada de aprendizagem mais inclusiva, acessível e
               pensada para respeitar o ritmo de cada criança.
             </p>
           </div>
 
-          <p className="relative z-10 text-sm text-white/60">
+          <p className="relative z-10 text-sm text-white">
             Ilumine Educa © <CurrentYear/>
           </p>
         </section>
@@ -58,7 +58,7 @@ export default function AuthLayout({
               alt="Ilumine Educa"
               width={150}
               height={55}
-              className="h-12 w-auto object-contain"
+              className="brand-logo h-12 w-auto object-contain"
               priority
             />
           </Link>

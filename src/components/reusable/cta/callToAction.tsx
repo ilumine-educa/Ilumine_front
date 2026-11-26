@@ -8,21 +8,21 @@ import {
   IconStar,
 } from "@tabler/icons-react";
 
+type Action = {
+  label: string;
+  href: string;
+  ariaLabel?: string;
+  newTab?: boolean;
+};
+
 type CallToActionProps = {
   eyebrow?: string;
   title: string;
   highlight?: string;
   description: string;
 
-  primaryAction: {
-    label: string;
-    href: string;
-  };
-
-  secondaryAction?: {
-    label: string;
-    href: string;
-  };
+  primaryAction: Action;
+  secondaryAction?: Action;
 
   footer?: string;
   footerIcon?: ReactNode;
@@ -54,7 +54,7 @@ export default function CallToAction({
     <section
       className={`
         relative isolate overflow-hidden
-        rounded-[2rem] bg-primary
+        rounded-[2rem] bg-panel
         shadow-xl shadow-primary/15
         ${compact ? "px-6 py-8 sm:px-10 sm:py-10" : "px-6 py-14 sm:px-12 sm:py-20 lg:px-16"}
         ${className}
@@ -144,13 +144,13 @@ export default function CallToAction({
             {title}
 
             {highlight && (
-              <span className="mt-1 block text-white/75">{highlight}</span>
+              <span className="mt-1 block text-white">{highlight}</span>
             )}
           </h2>
 
           <p
             className={`
-              leading-relaxed text-white/80
+              leading-relaxed text-white
               ${compact ? "mt-3 text-sm sm:text-base" : "mt-5 text-base sm:text-lg"}
               ${horizontal ? "max-w-2xl" : "mx-auto max-w-2xl"}
             `}
@@ -173,10 +173,13 @@ export default function CallToAction({
         >
           <Link
             href={primaryAction.href}
+            aria-label={primaryAction.ariaLabel}
+            target={primaryAction.newTab ? "_blank" : undefined}
+            rel={primaryAction.newTab ? "noopener noreferrer" : undefined}
             className="
               inline-flex min-h-11 items-center justify-center
               gap-2 rounded-full bg-white px-6 py-3
-              text-sm font-bold text-primary
+              text-sm font-bold text-panel
               shadow-lg transition-all duration-300
               hover:-translate-y-1 hover:bg-white/90
               focus-visible:outline-2 focus-visible:outline-offset-4
@@ -190,6 +193,9 @@ export default function CallToAction({
           {secondaryAction && (
             <Link
               href={secondaryAction.href}
+              aria-label={secondaryAction.ariaLabel}
+              target={secondaryAction.newTab ? "_blank" : undefined}
+              rel={secondaryAction.newTab ? "noopener noreferrer" : undefined}
               className="
                 inline-flex min-h-11 items-center justify-center
                 gap-2 rounded-full border border-white/30
@@ -212,7 +218,7 @@ export default function CallToAction({
         <div
           className={`
             relative z-10 flex items-center gap-2
-            text-sm text-white/75
+            text-sm text-white
             ${horizontal ? "mt-7 justify-start" : "mt-8 justify-center"}
           `}
         >

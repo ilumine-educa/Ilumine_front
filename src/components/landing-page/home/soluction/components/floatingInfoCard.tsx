@@ -23,7 +23,7 @@ export default function FloatingInfoCard({
       icon: "bg-primary-light text-primary",
     },
     secondary: {
-      icon: "bg-secondary-light text-secondary",
+      icon: "bg-secondary-light text-secondary-ink",
     },
   };
 

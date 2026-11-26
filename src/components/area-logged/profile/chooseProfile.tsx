@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 
+import { profileContainer } from "./profileLayout";
 import ProfileAnnouncements from "./profileAnnouncements";
 import { useState } from "react";
 import ProfileCard from "./profileCard";
@@ -37,8 +38,8 @@ export default function ChooseProfile({
         wave
         align="center"
       />
-      <section className="shadow-black/50 shadow-md px-5 py-12 sm:px-8">
-        <div className="mx-auto max-w-5xl">
+      <section className="shadow-black/50 shadow-md py-12">
+        <div className={profileContainer}>
           {/* Escolha de perfil */}
           <div className="flex flex-col gap-5">
             {/* Criança */}

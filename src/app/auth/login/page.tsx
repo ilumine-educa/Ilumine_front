@@ -47,7 +47,7 @@ export default function LoginPage() {
             <div className="mt-3 flex justify-end">
               <Link
                 href="/auth/recuperar-senha"
-                className="text-xs font-semibold text-primary transition-colors hover:text-secondary"
+                className="text-xs font-semibold text-primary transition-colors hover:text-secondary-ink hover:underline"
               >
                 Esqueceu sua senha?
               </Link>
@@ -71,7 +71,7 @@ export default function LoginPage() {
           Ainda não tem uma conta?{" "}
           <Link
             href="/auth/cadastro"
-            className="font-semibold text-primary hover:text-secondary"
+            className="font-semibold text-primary hover:text-secondary-ink hover:underline"
           >
             Criar conta
           </Link>

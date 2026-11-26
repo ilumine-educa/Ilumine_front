@@ -57,7 +57,7 @@ export default function CadastroPage() {
             <Link
               href="/termos-e-privacidade"
               target="_blank"
-              className="font-semibold text-primary hover:text-secondary"
+              className="font-semibold text-primary hover:text-secondary-ink hover:underline"
             >
               Termos de Uso e Política de Privacidade
             </Link>
@@ -67,7 +67,7 @@ export default function CadastroPage() {
 
         <button
           type="submit"
-          className="flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-secondary"
+          className="flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-text-inverse transition-all hover:-translate-y-0.5 hover:bg-primary-hover"
         >
           Criar minha conta
           <IconArrowRight size={18} />
@@ -79,7 +79,7 @@ export default function CadastroPage() {
           Já possui uma conta?{" "}
           <Link
             href="/auth/login"
-            className="font-semibold text-primary hover:text-secondary"
+            className="font-semibold text-primary hover:text-secondary-ink hover:underline"
           >
             Fazer login
           </Link>

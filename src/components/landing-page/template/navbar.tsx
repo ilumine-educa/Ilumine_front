@@ -99,7 +99,7 @@ export default function HomeNavbar() {
             width={160}
             height={55}
             priority
-            className="h-auto w-28 sm:w-36 lg:w-44"
+            className="brand-logo h-auto w-28 sm:w-36 lg:w-44"
           />
         </Link>
 
@@ -139,9 +139,9 @@ export default function HomeNavbar() {
               inline-flex items-center justify-center
               whitespace-nowrap rounded-full
               border border-secondary
-              px-5 py-2.5 text-secondary
+              px-5 py-2.5 text-secondary-ink
               transition-all duration-200
-              hover:bg-secondary hover:text-white
+              hover:bg-secondary hover:text-on-secondary
             "
           >
             Entrar
@@ -153,7 +153,7 @@ export default function HomeNavbar() {
               inline-flex items-center justify-center
               whitespace-nowrap rounded-full
               bg-secondary px-5 py-2.5
-              text-white
+              text-on-secondary
               transition-all duration-200
               hover:bg-secondary-hover
               hover:shadow-md
@@ -196,7 +196,7 @@ export default function HomeNavbar() {
           transition-all duration-300 ease-in-out
           ${
             menuOpen
-              ? "visible max-h-125 opacity-100"
+              ? "visible max-h-[min(31.25rem,75dvh)] opacity-100"
               : "invisible max-h-0 opacity-0"
           }
         `}
@@ -237,9 +237,9 @@ export default function HomeNavbar() {
                 flex items-center justify-center
                 rounded-full border border-secondary
                 px-5 py-3 font-semibold
-                text-secondary
+                text-secondary-ink
                 transition-colors
-                hover:bg-secondary hover:text-white
+                hover:bg-secondary hover:text-on-secondary
               "
             >
               Entrar
@@ -252,7 +252,7 @@ export default function HomeNavbar() {
                 flex items-center justify-center
                 rounded-full bg-secondary
                 px-5 py-3 font-semibold
-                text-white
+                text-on-secondary
                 transition-colors
                 hover:bg-secondary-hover
               "

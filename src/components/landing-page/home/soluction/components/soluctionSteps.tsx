@@ -19,7 +19,7 @@ export default function SolutionSteps() {
               transition-all duration-300
               group-hover:border-primary
               group-hover:bg-primary
-              group-hover:text-white
+              group-hover:text-text-inverse
             "
           >
             {step.number}
