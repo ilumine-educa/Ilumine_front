@@ -23,7 +23,7 @@ export default function quemSomosPage() {
         actions={[
           {
             label: "Conheça nossa proposta",
-            href: "/#sobre",
+            href: "/#solucao",
           },
         ]}
         decorations

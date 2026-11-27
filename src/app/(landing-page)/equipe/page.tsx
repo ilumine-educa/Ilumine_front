@@ -1,9 +1,9 @@
-import Image from "next/image";
 import SectionHeader from "@/src/components/reusable/sectionHeader";
 import TeamMemberCard from "@/src/components/landing-page/equipe/teamMemberCard";
 import { teamMembers, teamPhoto } from "@/src/components/landing-page/equipe/teamData";
 import Hero from "@/src/components/reusable/hero";
 import CallToAction from "@/src/components/reusable/cta/callToAction";
+import Image from "next/image";
 
 export default function TeamPage() {
   return (

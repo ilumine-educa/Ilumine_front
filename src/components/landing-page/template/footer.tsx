@@ -1,4 +1,3 @@
-import { officialSocialLinks } from "../socialLinks";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -12,26 +11,22 @@ import CurrentYear from "../../reusable/data/currentYear";
 
 const navLinks = [
   { label: "Início", href: "/" },
-  { label: "Solução", href: "/#solucao" },
-  { label: "Quem somos", href: "/quem-somos/" },
-  { label: "Contato", href: "/contato/" },
+  { label: "Sobre nós", href: "/sobre" },
+  { label: "Nossa Equipe", href: "/equipe" },
+  { label: "Contato", href: "/contato" },
 ];
 
 const socialLinks = [
   {
-    ...officialSocialLinks.instagram,
+    name: "Instagram",
+    href: "https://www.instagram.com/ilumine.educa/",
     icon: IconBrandInstagram,
   },
   {
-    ...officialSocialLinks.linkedin,
+    name: "Linkedin",
+    href: "https://www.linkedin.com/in/ilumine/",
     icon: IconBrandLinkedin,
-  },
-  {
-    label: "YouTube",
-    ariaLabel: "Acesse nosso YouTube",
-    href: "https://youtube.com/",
-    icon: IconBrandYoutube,
-  },
+  }
 ];
 
 export default function HomeFooter() {
@@ -67,11 +62,11 @@ export default function HomeFooter() {
                 alt="Ilumine Educa"
                 width={160}
                 height={55}
-                className="brand-logo h-auto w-32 sm:w-36"
+                className="h-auto w-32 sm:w-36"
               />
             </Link>
 
-            <p className="mt-4 text-sm leading-relaxed text-text-secondary-ink">
+            <p className="mt-4 text-sm leading-relaxed text-text-secondary">
               Um projeto dedicado à alfabetização inclusiva, respeitando as
               diferentes formas e ritmos de aprendizagem de cada criança.
             </p>
@@ -106,28 +101,28 @@ export default function HomeFooter() {
 
           {/* Projeto */}
           <div>
-            <h2 className="font-heading text-xl font-semibold text-secondary-ink">
+            <h2 className="font-heading text-xl font-semibold text-secondary">
               O projeto
             </h2>
 
-            <p className="mt-4 max-w-56 text-sm leading-relaxed text-text-secondary-ink">
+            <p className="mt-4 max-w-56 text-sm leading-relaxed text-text-secondary">
               Educação, inclusão e respeito ao ritmo de aprendizagem de cada
               criança.
             </p>
 
             <Link
-              href="/quem-somos/"
+              href="/sobre"
               className="
                 mt-3 inline-flex min-h-9 items-center gap-1
-                text-sm font-semibold text-secondary-ink
-                transition-colors hover:text-secondary-ink hover:underline
+                text-sm font-semibold text-secondary
+                transition-colors hover:text-secondary-hover
               "
             >
               Conheça o Ilumine
               <IconArrowUpRight size={16} />
             </Link>
 
-            <span className="mt-3 block text-xs text-text-secondary-ink">
+            <span className="mt-3 block text-xs text-text-secondary">
               Projeto em desenvolvimento
             </span>
           </div>
@@ -138,18 +133,18 @@ export default function HomeFooter() {
               Nossas Redes
             </h2>
 
-            <p className="mt-4 text-sm leading-relaxed text-text-secondary-ink">
+            <p className="mt-4 text-sm leading-relaxed text-text-secondary">
               Acompanhe nossas novidades e iniciativas.
             </p>
 
             <ul className="mt-3 flex flex-col gap-2">
-              {socialLinks.map(({ label: name, href, icon: Icon, ariaLabel }) => (
+              {socialLinks.map(({ name, href, icon: Icon }) => (
                 <li key={name}>
                   <a
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={ariaLabel}
+                    aria-label={`Acesse nosso ${name}`}
                     className="
                       group inline-flex min-h-9
                       items-center gap-2

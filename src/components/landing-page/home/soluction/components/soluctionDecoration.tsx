@@ -135,92 +135,20 @@ export default function SoluctionDecoration() {
       {/* Dispositivos */}
       <div
         className="
-          relative mx-auto
-          aspect-[672/500] w-full
-          [perspective:1400px]
-        "
+    relative
+    w-full
+    aspect-[9/9]
+    max-w-5xl
+  "
       >
-        {/* Tablet */}
-        <div
-          className="
-            absolute right-[2%] top-[5%]
-            h-[78%] w-[76%]
-            rounded-[2rem] border-[7px]
-            border-neutral-800 bg-neutral-900
-            p-2 shadow-2xl
-            transition-transform duration-700
-            [transform:rotateY(-13deg)_rotateX(4deg)]
-            hover:[transform:rotateY(-5deg)_rotateX(0deg)]
-            sm:rounded-[2.5rem] sm:border-[10px]
-          "
-        >
-          <div
-            className="
-              absolute left-1/2 top-1 z-20
-              h-2 w-2 -translate-x-1/2
-              rounded-full bg-neutral-700
-            "
-          />
-
-          <div
-            className="
-              relative h-full w-full
-              overflow-hidden rounded-[1.3rem]
-              bg-white sm:rounded-[1.8rem]
-            "
-          >
-            <Image
-              src="/images/monitoramento.webp"
-              alt="Monitoramento do responsável com indicadores e rotina semanal"
-              fill
-              priority
-              sizes="(min-width: 1921px) min(26.042vw, 667px), (max-width: 768px) 70vw, 500px"
-              className="object-cover object-top"
-            />
-          </div>
-        </div>
-
-        {/* Celular */}
-        <div
-          className="
-            absolute bottom-[2%] left-[3%] z-20
-            h-[68%] w-[39%]
-            rounded-[2.5rem] border-[6px]
-            border-neutral-800 bg-neutral-900
-            p-1.5 shadow-2xl
-            transition-transform duration-700
-            [transform:rotateY(12deg)_rotateX(3deg)]
-            hover:[transform:rotateY(3deg)_rotateX(0deg)]
-            sm:rounded-[3rem] sm:border-[8px]
-          "
-        >
-          <div
-            className="
-              absolute left-1/2 top-1.5 z-20
-              h-4 w-16 -translate-x-1/2
-              rounded-full bg-neutral-900
-              sm:h-5 sm:w-20
-            "
-          />
-
-          <div
-            className="
-              relative h-full w-full
-              overflow-hidden rounded-[2rem]
-              bg-white sm:rounded-[2.5rem]
-            "
-          >
-            <Image
-              src="/images/minha-trilha.webp"
-              alt="Minha Trilha de Português com o jogo Monte a Palavra"
-              fill
-              sizes="(min-width: 1921px) min(13.021vw, 334px), (max-width: 768px) 40vw, 250px"
-              className="object-cover object-top"
-            />
-          </div>
-        </div>
+        <Image
+          src="/images/projeto/mockup.png"
+          fill
+          alt="Imagem das telas de monitoramento e jogos"
+          className="object-contain"
+          priority
+        />
       </div>
-
       {/* Legenda */}
       <p className="mt-4 text-center text-xs text-text-secondary">
         Tecnologia que respeita o tempo e a individualidade de cada criança.
