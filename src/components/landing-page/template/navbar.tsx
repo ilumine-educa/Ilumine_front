@@ -139,9 +139,9 @@ export default function HomeNavbar() {
               inline-flex items-center justify-center
               whitespace-nowrap rounded-full
               border border-secondary
-              px-5 py-2.5 text-secondary-ink
+              px-5 py-2.5 text-[#ff8702]
               transition-all duration-200
-              hover:bg-secondary hover:text-on-secondary
+              hover:bg-secondary hover:text-black
             "
           >
             Entrar
@@ -153,9 +153,9 @@ export default function HomeNavbar() {
               inline-flex items-center justify-center
               whitespace-nowrap rounded-full
               bg-secondary px-5 py-2.5
-              text-on-secondary
+              text-white
               transition-all duration-200
-              hover:bg-secondary-hover
+              hover:bg-secondary-hover hover:text-black
               hover:shadow-md
             "
           >
@@ -237,9 +237,9 @@ export default function HomeNavbar() {
                 flex items-center justify-center
                 rounded-full border border-secondary
                 px-5 py-3 font-semibold
-                text-secondary-ink
+                text-[#ff8702]
                 transition-colors
-                hover:bg-secondary hover:text-on-secondary
+                hover:bg-secondary hover:text-black
               "
             >
               Entrar
@@ -252,9 +252,9 @@ export default function HomeNavbar() {
                 flex items-center justify-center
                 rounded-full bg-secondary
                 px-5 py-3 font-semibold
-                text-on-secondary
+                text-white
                 transition-colors
-                hover:bg-secondary-hover
+                hover:bg-secondary-hover hover:text-black
               "
             >
               Criar Conta

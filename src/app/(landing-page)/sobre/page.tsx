@@ -37,7 +37,7 @@ export default function quemSomosPage() {
       <JourneySection />
 
       {/* CTA */}
-      <section className="px-4 py-24 sm:px-6 lg:px-12">
+      <section className="mx-auto w-full max-w-[100rem] px-4 py-24 sm:px-8 lg:px-12 min-[1921px]:max-w-[min(83.333vw,133.333rem)] min-[1921px]:px-[min(2.5vw,4rem)]">
         <CallToAction
           title="Cada criança tem seu jeito."
           highlight="E todo jeito merece espaço para evoluir."
